@@ -9,10 +9,8 @@
     border: 2px solid #6f0000;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
-    z-index: 999; /* Sørg for at boksen er øverst i laget */
+    z-index: 999;
 }
-
-
 
 .popup-content {
     text-align: center;
@@ -30,16 +28,16 @@ nav {
 }
 
 nav a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     margin: 0 10px;
-    padding: 6px 10px; /* legg til litt padding for å matche knappstilen */
-    border: 1px solid transparent; /* legg til en grense for å skille lenken fra bakgrunnen */
-    border-radius: 4px; /* gi lenken litt avrundede hjørner for å matche knappene */
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* endre bakgrunnsfargen når lenken er i hover-tilstand */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 main {
@@ -53,58 +51,53 @@ main {
 }
 
 /* Høykontrast-tema */
-/* Oppdatert Høykontrast-tema */
 .high-contrast {
-    background-color: #000000; /* Helt svart bakgrunn */
-    color: #ffffff; /* Teksten er hvit */
+    background-color: #000000;
+    color: #000000;
 }
 
 .high-contrast nav {
-    background-color: #f0f004; /* Gult bakgrunnsfarge for navigasjonsmenyen */
-    color: #000000; /* Tekstfargen */
+    background-color: #f0f004;
+    color: #000000;
+    padding: 15px 0; /* Øk padding for å gjøre baren større */
 }
 
 .high-contrast nav a {
-    border-color: #000000; /* Tydelig hvit grense rundt lenkene */
+    color: #000000;
+    border-color: #000000;
+    border-width: 5px;
+    border-radius: 7px;
 }
 
 .high-contrast nav a:hover {
-    background-color: #20ecfc; /* Farge på knappene når hover */
+    background-color: #20ecfc;
 }
 
-
 .high-contrast #quiz {
-    background-color: #000000; /* Helt svart bakgrunn for quizen */
+    background-color: #000000;
 }
 
 .high-contrast #question {
-    color: #ffffff; /* Teksten er hvit */
+    color: #ffffff;
 }
 
-.high-contrast #options button {
-    background-color: #ffffff; /* Bakgrunnsfargen på knappene */
-    color: #000000; /* Fargen på teksten på knappene */
-    border-color: #ffffff; /* Grensefargen på knappene */
-}
-
-.high-contrast #options button:hover {
-    background-color: #20ecfc; /* Farge på knappene når hover */
-}
-
+.high-contrast #options button,
 .high-contrast #nextBtn {
-    background-color: #ffffff; /* Bakgrunnsfargen på "Neste spørsmål"-knappen */
-    color: #000000; /* Fargen på teksten på "Neste spørsmål"-knappen */
-    border-color: #ffffff; /* Grensefargen på "Neste spørsmål"-knappen */
+    width: 200px; /* Samme bredde som andre temaer */
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
 }
 
+.high-contrast #options button:hover,
 .high-contrast #nextBtn:hover {
-    background-color: #20ecfc; /* Farge på "Neste spørsmål"-knappen når hover */
+    background-color: #20ecfc;
+    transform: translateY(-2px);
 }
 
 .high-contrast #score {
-    color: #ffffff; /* Farge på teksten for poengsum */
+    color: #ffffff;
 }
-
 
 /* Quiz styling */
 #quiz {
@@ -122,38 +115,45 @@ main {
     align-items: center;
 }
 
-#options button {
+#options button,
+#nextBtn {
+    width: 200px;
     margin: 10px;
     padding: 12px 20px;
     font-size: 1em;
-    border: none;
+    border-color: #6f0000;
+    border-width: 3px;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #6f0000;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 1s ease, transform 20s ease;
+    transition: color 0.7s ease, transform 20s ease;
+}
+
+#nextBtn {
+    width: 300px;
+    margin: 20px auto; /* Endret fra 'margin-top: 100px;' til 'margin: 20px auto;' */
+    padding: 42px 40px;
+    border-color: #6f0000;
+    font-size: 1.4rem;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#options button:hover {
-    background-color: #800000;
+#options button:hover,
+#nextBtn:hover {
+    color: #ffffff;
+    background-color: #6f0000;
     transform: translateY(-2px);
 }
 
 #nextBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #6f0000;
-    color: #fff;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#nextBtn:hover {
-    background-color: #800000;
-    transform: translateY(-2px);
+    margin-top: 100px;
+    font-size: 1.4rem;
 }
 
 #score {
