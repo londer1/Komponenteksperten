@@ -160,3 +160,16 @@ main {
     font-size: 1.2em;
     margin-top: 20px;
 }
+
+/* Legg til stilregler for score */
+#score {
+    position: fixed;
+    top: 50px; /* Juster vertikal avstand etter behov */
+    right: 20px; /* Juster horisontal avstand etter behov */
+    background-color: rgba(255, 255, 255, 0.8); /* Gjennomsiktig bakgrunn */
+    padding: 5px 10px; /* Juster padding etter behov */
+    border-radius: 5px;
+    z-index: 999; /* Sørg for at poengsummen er foran andre elementer */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Legg til skyggeeffekt */
+    color:#000000
+}
