@@ -4,12 +4,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #f3f3f3; /* Lysere gråfarge */
+    background-color: #f3f3f3;
     padding: 20px;
-    border: 2px solid #6f0000; /* Rød kant */
-    border-radius: 10px; /* Myke kanter */
-    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5); /* Myk skygge */
+    border: 2px solid #6f0000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+    z-index: 999; /* Sørg for at boksen er øverst i laget */
 }
+
 
 
 .popup-content {
@@ -51,6 +53,110 @@ main {
 }
 
 /* Høykontrast-tema */
+/* Oppdatert Høykontrast-tema */
 .high-contrast {
-    filter: invert(1) hue-rotate(180deg);
+    background-color: #000000; /* Helt svart bakgrunn */
+    color: #ffffff; /* Teksten er hvit */
+}
+
+.high-contrast nav {
+    background-color: #f0f004; /* Gult bakgrunnsfarge for navigasjonsmenyen */
+    color: #000000; /* Tekstfargen */
+}
+
+.high-contrast nav a {
+    border-color: #000000; /* Tydelig hvit grense rundt lenkene */
+}
+
+.high-contrast nav a:hover {
+    background-color: #20ecfc; /* Farge på knappene når hover */
+}
+
+
+.high-contrast #quiz {
+    background-color: #000000; /* Helt svart bakgrunn for quizen */
+}
+
+.high-contrast #question {
+    color: #ffffff; /* Teksten er hvit */
+}
+
+.high-contrast #options button {
+    background-color: #ffffff; /* Bakgrunnsfargen på knappene */
+    color: #000000; /* Fargen på teksten på knappene */
+    border-color: #ffffff; /* Grensefargen på knappene */
+}
+
+.high-contrast #options button:hover {
+    background-color: #20ecfc; /* Farge på knappene når hover */
+}
+
+.high-contrast #nextBtn {
+    background-color: #ffffff; /* Bakgrunnsfargen på "Neste spørsmål"-knappen */
+    color: #000000; /* Fargen på teksten på "Neste spørsmål"-knappen */
+    border-color: #ffffff; /* Grensefargen på "Neste spørsmål"-knappen */
+}
+
+.high-contrast #nextBtn:hover {
+    background-color: #20ecfc; /* Farge på "Neste spørsmål"-knappen når hover */
+}
+
+.high-contrast #score {
+    color: #ffffff; /* Farge på teksten for poengsum */
+}
+
+
+/* Quiz styling */
+#quiz {
+    text-align: center;
+}
+
+#question {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#options button {
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #6f0000;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#options button:hover {
+    background-color: #800000;
+    transform: translateY(-2px);
+}
+
+#nextBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #6f0000;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#nextBtn:hover {
+    background-color: #800000;
+    transform: translateY(-2px);
+}
+
+#score {
+    font-size: 1.2em;
+    margin-top: 20px;
 }
