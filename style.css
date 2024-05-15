@@ -53,13 +53,13 @@ main {
 /* Høykontrast-tema */
 .high-contrast {
     background-color: #000000;
-    color: #000000;
+    color: #f0f004;
 }
 
 .high-contrast nav {
     background-color: #f0f004;
     color: #000000;
-    padding: 15px 0; /* Øk padding for å gjøre baren større */
+    padding: 15px 0;
 }
 
 .high-contrast nav a {
@@ -78,21 +78,29 @@ main {
 }
 
 .high-contrast #question {
-    color: #ffffff;
+    color: #20ecfc;
 }
 
 .high-contrast #options button,
 .high-contrast #nextBtn {
-    width: 200px; /* Samme bredde som andre temaer */
+    width: 200px;
     background-color: #ffffff;
     color: #000000;
-    border-color: #ffffff;
+    border-color: #20ecfc;
+    /* outline-color: #f0f004; */
+
 }
 
 .high-contrast #options button:hover,
 .high-contrast #nextBtn:hover {
     background-color: #20ecfc;
     transform: translateY(-2px);
+    border-color: #f0f004;
+    border-width: 7px;
+    transition: border-color, border-width 0.5s ease, transform 1s ease;
+    /* outline-color: #f0f004;
+    outline-width: 7px;
+    transition: outline-color, outline-width 0.5s ease, transform 1s ease; */
 }
 
 .high-contrast #score {
@@ -133,7 +141,7 @@ main {
 
 #nextBtn {
     width: 300px;
-    margin: 20px auto; /* Endret fra 'margin-top: 100px;' til 'margin: 20px auto;' */
+    margin: 20px auto;
     padding: 42px 40px;
     border-color: #6f0000;
     font-size: 1.4rem;
@@ -164,12 +172,12 @@ main {
 /* Legg til stilregler for score */
 #score {
     position: fixed;
-    top: 50px; /* Juster vertikal avstand etter behov */
-    right: 20px; /* Juster horisontal avstand etter behov */
-    background-color: rgba(255, 255, 255, 0.8); /* Gjennomsiktig bakgrunn */
-    padding: 5px 10px; /* Juster padding etter behov */
+    top: 50px; 
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
     border-radius: 5px;
-    z-index: 999; /* Sørg for at poengsummen er foran andre elementer */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Legg til skyggeeffekt */
+    z-index: 999; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     color:#000000
 }

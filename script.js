@@ -227,3 +227,4 @@ document.addEventListener('DOMContentLoaded', function() {
     nextBtn.style.display = 'none'; // Skjuler knappen initialt
     
 });
+
