@@ -228,3 +228,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+links.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(targetId).style.display = 'block';
+        themePopup.style.display = 'none';
+        
+        // Når du bytter mellom seksjoner, sjekk om du er på quiz
+        toggleScoreBox(targetId === 'quiz'); // Vis poengboksen kun hvis du er på quiz
+    });
+});
+
+function toggleScoreBox(display) {
+    scoreBox.style.display = display ? 'block' : 'none';
+}

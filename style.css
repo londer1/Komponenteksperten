@@ -97,7 +97,7 @@ main {
     transform: translateY(-2px);
     border-color: #f0f004;
     border-width: 7px;
-    transition: border-color, border-width 0.5s ease, transform 1s ease;
+    transition: border-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
     /* outline-color: #f0f004;
     outline-width: 7px;
     transition: outline-color, outline-width 0.5s ease, transform 1s ease; */
