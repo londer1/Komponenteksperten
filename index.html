@@ -14,6 +14,8 @@
         <a href="#connection">Sammenhengen</a>
         <a href="#quiz">Quiz</a>
         <a href="#" id="themeLink">Tema</a>
+        <!-- Flytt score under navigasjonsmenyen -->
+        <!-- <div id="score">Poeng: <span id="scoreValue">0</span></div> -->
     </nav>
     
     <!-- Hovedinnhold -->
@@ -21,23 +23,22 @@
         <!-- Hjemmeside -->
         <section id="home">
             <h1>Komponenteksperten</h1>
-            <p>Velkommen til Komponenteksperten Her kan du lære alt om datamaskinens viktigste komponenter og hvordan de fungerer sammen.</p>
+            <p>Velkommen til Komponenteksperten! Her kan du lære alt om datamaskinens viktigste komponenter og hvordan de fungerer sammen.</p>
             <p>Utforsk våre ressurser ved å klikke på knappene i navigasjonsmenyen over.</p>
-            <div id="themePopupHome" class="popup dark-mode" style="display:none;"></div>
         </section>
 
         <!-- Komponenter -->
         <section id="components" style="display: none;">
             <h2>Komponenter</h2>
             <p>Her kan du lese om ulike datamaskinkomponenter som prosessor, minne, grafikkort osv.</p>
-            <div id="themePopupComponents" class="popup dark-mode" style="display:none;"></div>
+            
         </section>
 
         <!-- Sammenhengen -->
         <section id="connection" style="display: none;">
             <h2>Sammenhengen mellom dem</h2>
             <p>Forstå hvordan forskjellige datamaskinkomponenter samhandler og påvirker ytelsen til systemet.</p>
-            <div id="themePopupConnection" class="popup dark-mode" style="display:none;"></div>
+            
         </section>
 
         <!-- Quiz -->
@@ -46,10 +47,19 @@
             <div id="question"></div>
             <div id="options"></div>
             <button id="nextBtn">Neste spørsmål</button>
+            <!-- Flytt score til slutten av Quiz-seksjonen hvis ønskelig -->
             <div id="score">Poeng: <span id="scoreValue">0</span></div>
-            <div id="themePopupQuiz" class="popup dark-mode" style="display:none;"></div>
         </section>
     </main>
+
+    <div id="themePopup" class="popup dark-mode"> <!-- Legg til dark-mode klassen her -->
+        <div class="popup-content">
+            <h3>Velg et tema</h3>
+            <button id="darkThemeBtn">Mørkt tema</button>
+            <button id="lightThemeBtn">Lyst tema</button>
+            <button id="highContrastThemeBtn">Høykontrast-tema</button>
+        </div>
+    </div>    
 
     <script src="script.js"></script>
 </body>
