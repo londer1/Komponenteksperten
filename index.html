@@ -13,7 +13,7 @@
         <a href="#components">Komponenter</a>
         <a href="#connection">Sammenhengen</a>
         <a href="#quiz">Quiz</a>
-        <a href="#" id="themeLink">Tema</a>
+        <button id="themeLink" class="nav-button theme-button">Tema</button>
         <!-- Flytt score under navigasjonsmenyen -->
         <!-- <div id="score">Poeng: <span id="scoreValue">0</span></div> -->
     </nav>
@@ -30,8 +30,10 @@
         <!-- Komponenter -->
         <section id="components" style="display: none;">
             <h2>Komponenter</h2>
-            <p>Her kan du lese om ulike datamaskinkomponenter som prosessor, minne, grafikkort osv.</p>
-            
+            <p>De fleste har en datamaskin, eller brukt en datamasin i livet sitt. Men har du egentlig tenkt på hvordan den fungerer? I denne teksten skal jeg forklare komponentene, fordi en datamaskin er ikke bare magi.</p>
+            <h3>Prosessor (også kalt CPU)</h3>
+            <p>En prosessor er det noen vil kalle for "hjernen til en datamaskin. Mange er ikke så enig siden alle delene til en datamaskin på sett og hvis er en del av "hjernen", men prosessoren er der det meste av dataen blir behandlet. Prossesoren har mange transistorer som er enten ladet eller ikke, dette kan du kalle for av eller på, eller som i dataspråk 0 og 1. Fordi en prosessor jobber kun med 1 og 0.</p><br>
+            <h3>Minne (også kalt RAM)</h3>
         </section>
 
         <!-- Sammenhengen -->
@@ -42,24 +44,24 @@
         </section>
 
         <!-- Quiz -->
-        <section id="quiz" style="display: none;">
-            <h2>Quiz</h2>
+        <div id="quiz">
             <div id="question"></div>
             <div id="options"></div>
-            <button id="nextBtn">Neste spørsmål</button>
-            <!-- Flytt score til slutten av Quiz-seksjonen hvis ønskelig -->
-            <div id="score">Poeng: <span id="scoreValue">0</span></div>
-        </section>
+            <button id="nextBtn">Neste</button>
+            <div id="scoreValue">Poeng: 0</div>
+        </div>
+
     </main>
 
-    <div id="themePopup" class="popup dark-mode"> <!-- Legg til dark-mode klassen her -->
+    <!-- Temavelger popup -->
+    <div id="themePopup" class="theme-popup">
         <div class="popup-content">
             <h3>Velg et tema</h3>
-            <button id="darkThemeBtn">Mørkt tema</button>
-            <button id="lightThemeBtn">Lyst tema</button>
-            <button id="highContrastThemeBtn">Høykontrast-tema</button>
+            <button id="darkThemeBtn" class="theme-button">Mørkt tema</button>
+            <button id="lightThemeBtn" class="theme-button">Lyst tema</button>
+            <button id="highContrastThemeBtn" class="theme-button">Høykontrast-tema</button>
         </div>
-    </div>    
+    </div>
 
     <script src="script.js"></script>
 </body>

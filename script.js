@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightThemeBtn = document.getElementById('lightThemeBtn');
     const highContrastThemeBtn = document.getElementById('highContrastThemeBtn');
 
+    // Legg til en variabel for å spore om temavelgeren er åpen eller lukket
+    let themePopupOpen = false;
+
     // Sjekk om det er lagret et temavalg i lokal lagring
     const savedTheme = localStorage.getItem('theme');
 
@@ -29,44 +32,54 @@ document.addEventListener('DOMContentLoaded', function() {
                 section.style.display = 'none';
             });
             document.getElementById(targetId).style.display = 'block';
-            themePopup.style.display = 'none';
+            // Lukk temavelgeren når du klikker på en lenke
+            closeThemePopup();
         });
     });
 
+    // Endre funksjonen for å åpne og lukke temavelgeren
     themeLink.addEventListener('click', function() {
-        themePopup.style.display = 'block';
-    });
-
-    window.addEventListener('click', function(e) {
-        if (e.target === themePopup || !themeLink.contains(e.target)) {
-            themePopup.style.display = 'none';
+        if (themePopupOpen) {
+            closeThemePopup();
+        } else {
+            openThemePopup();
         }
     });
 
+    // Legg til funksjoner for å åpne og lukke temavelgeren
+    function openThemePopup() {
+        themePopup.style.display = 'block';
+        themePopupOpen = true;
+    }
+
+    function closeThemePopup() {
+        themePopup.style.display = 'none';
+        themePopupOpen = false;
+    }
+
+    // Legg til event listeners for temavalgknappene som før
     darkThemeBtn.addEventListener('click', function() {
         document.body.classList.add('dark-mode');
         document.body.classList.remove('high-contrast');
-        themePopup.style.display = 'none';
+        closeThemePopup();
         localStorage.setItem('theme', 'dark');
     });
 
     lightThemeBtn.addEventListener('click', function() {
         document.body.classList.remove('dark-mode');
         document.body.classList.remove('high-contrast');
-        themePopup.style.display = 'none';
+        closeThemePopup();
         localStorage.setItem('theme', 'light');
     });
 
     highContrastThemeBtn.addEventListener('click', function() {
         document.body.classList.remove('dark-mode');
         document.body.classList.add('high-contrast');
-        themePopup.style.display = 'none';
+        closeThemePopup();
         localStorage.setItem('theme', 'highContrast');
     });
 
-
-
-    // Quizfunksjonalitet
+       // Quizfunksjonalitet
     const quizSection = document.getElementById('quiz');
     const questionElement = document.getElementById('question');
     const optionsElement = document.getElementById('options');
@@ -146,84 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];    
 
-    let currentQuestionIndex = 0;
-    let score = 0;
-
-    function displayQuestion() {
-        const currentQuestion = questions[currentQuestionIndex];
-        questionElement.textContent = currentQuestion.question;
-
-        optionsElement.innerHTML = '';
-        currentQuestion.options.forEach((option, index) => {
-            const button = document.createElement('button');
-            button.textContent = option;
-            button.addEventListener('click', function() {
-                handleAnswer(index);
-            });
-            optionsElement.appendChild(button);
-        });
-    }
-
-    function handleAnswer(selectedIndex) {
-        const currentQuestion = questions[currentQuestionIndex];
-        if (selectedIndex === currentQuestion.answer) {
-            score++;
-            scoreElement.textContent = score;
-            // Sett knappens bakgrunnsfarge til grønn for riktig svar
-            optionsElement.children[currentQuestion.answer].style.backgroundColor = 'green';
-        } else {
-            // Sett knappens bakgrunnsfarge til rød for feil svar
-            optionsElement.children[selectedIndex].style.backgroundColor = 'red';
-            optionsElement.children[currentQuestion.answer].style.backgroundColor = 'green';
-        }
-        // Deaktiver alle knappene etter svar
-        Array.from(optionsElement.children).forEach(button => {
-            button.disabled = true;
-        });
-        // Vis neste-knappen
-        nextBtn.style.display = 'block';
-    }
-
-    nextBtn.addEventListener('click', function() {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            displayQuestion();
-            // Nullstill farge på knappene
-            Array.from(optionsElement.children).forEach(button => {
-                button.style.backgroundColor = '';
-                button.disabled = false;
-            });
-            // Skjul neste-knappen
-            nextBtn.style.display = 'none';
-        } else {
-            // Quiz'en er fullført
-            quizSection.innerHTML = '<h2>Quiz fullført!</h2><p>Din endelige poengsum er: ' + score + ' av 14 poeng</p>';
-        }
-    });
 
     // Start quiz ved lasting av siden
     displayQuestion();
 
-    function handleAnswer(selectedIndex) {
-        const currentQuestion = questions[currentQuestionIndex];
-        if (selectedIndex === currentQuestion.answer) {
-            score++;
-            scoreElement.textContent = score;
-            // Sett knappens bakgrunnsfarge til grønn for riktig svar
-            optionsElement.children[currentQuestion.answer].style.backgroundColor = 'green';
-        } else {
-            // Sett knappens bakgrunnsfarge til rød for feil svar
-            optionsElement.children[selectedIndex].style.backgroundColor = 'red';
-            optionsElement.children[currentQuestion.answer].style.backgroundColor = 'green';
-        }
-        // Deaktiver alle knappene etter svar
-        Array.from(optionsElement.children).forEach(button => {
-            button.disabled = true;
-        });
-        // Vis neste-knappen
-        nextBtn.style.display = 'block'; // Viser knappen etter svar
-    }
-    
-    nextBtn.style.display = 'none'; // Skjuler knappen initialt
-    
 });

@@ -1,25 +1,3 @@
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f3f3f3;
-    padding: 20px;
-    border: 2px solid #6f0000;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
-    z-index: 999;
-}
-
-.popup-content {
-    text-align: center;
-}
-
-.popup button {
-    margin: 5px;
-}
-
 nav {
     background-color: #6f0000;
     color: #fff;
@@ -65,8 +43,8 @@ main {
 .high-contrast nav a {
     color: #000000;
     border-color: #000000;
-    border-width: 5px;
-    border-radius: 7px;
+    border-width: 1px;
+    border-radius: 1px;
 }
 
 .high-contrast nav a:hover {
@@ -106,6 +84,26 @@ main {
 .high-contrast #score {
     color: #ffffff;
 }
+
+.dark-mode .theme-button:hover {
+    background-color: #691919;
+}
+
+.light-mode .theme-button:hover {
+    background-color: #6f0000;
+}
+.high-contrast .nav-button {
+    background-color: #f0f004;
+    color: #000000;
+    border:#000000;
+    border-width: 10px;
+}
+
+.high-contrast .nav-button:hover {
+    background-color: #20ecfc;
+    transition: background-color 0.5s ease, transform 5s ease;
+}
+
 
 /* Quiz styling */
 #quiz {
@@ -180,4 +178,50 @@ main {
     z-index: 999; 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     color:#000000
+}
+
+/* Legg til stil for dialogboksen */
+.theme-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #6f0000;
+    padding: 20px;
+    display: none;
+    z-index: 1000;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px #6f0000;
+}
+
+/* Vis dialogboksen når klassen er aktivert */
+.show-theme-dialog .theme-popup {
+    display: block;
+}
+
+/* Legg til disse stilene i style.css */
+
+.nav-button {
+    color: #ffffff;
+    background-color: #f004bd;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 0 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.theme-button {
+    color: #ffffff;
+    background-color: #6f0000;
+    /* border: none; */
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.theme-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
