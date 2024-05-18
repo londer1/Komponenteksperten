@@ -7,13 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightThemeBtn = document.getElementById('lightThemeBtn');
     const highContrastThemeBtn = document.getElementById('highContrastThemeBtn');
 
-    // Legg til en variabel for å spore om temavelgeren er åpen eller lukket
     let themePopupOpen = false;
-
-    // Sjekk om det er lagret et temavalg i lokal lagring
     const savedTheme = localStorage.getItem('theme');
 
-    // Sett standardtema til lyst hvis ikke annet er lagret
     if (!savedTheme || savedTheme === 'light') {
         document.body.classList.remove('dark-mode');
         document.body.classList.remove('high-contrast');
@@ -32,12 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 section.style.display = 'none';
             });
             document.getElementById(targetId).style.display = 'block';
-            // Lukk temavelgeren når du klikker på en lenke
             closeThemePopup();
         });
     });
 
-    // Endre funksjonen for å åpne og lukke temavelgeren
     themeLink.addEventListener('click', function() {
         if (themePopupOpen) {
             closeThemePopup();
@@ -46,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Legg til funksjoner for å åpne og lukke temavelgeren
     function openThemePopup() {
         themePopup.style.display = 'block';
         themePopupOpen = true;
@@ -57,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         themePopupOpen = false;
     }
 
-    // Legg til event listeners for temavalgknappene som før
     darkThemeBtn.addEventListener('click', function() {
         document.body.classList.add('dark-mode');
         document.body.classList.remove('high-contrast');
@@ -79,13 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', 'highContrast');
     });
 
-       // Quizfunksjonalitet
     const quizSection = document.getElementById('quiz');
     const questionElement = document.getElementById('question');
     const optionsElement = document.getElementById('options');
     const nextBtn = document.getElementById('nextBtn');
     const scoreElement = document.getElementById('scoreValue');
 
+    // Quizfunksjonalitet
     const questions = [
         {
             question: 'Hva er hovedfunksjonen til en prosessor?',
@@ -157,10 +149,50 @@ document.addEventListener('DOMContentLoaded', function() {
             options: ['HDDer er raskere enn SSDer', 'HDDer har bevegelige deler, mens SSDer ikke har det', 'SSDer har mindre lagringskapasitet enn HDDer', 'SSDer er mer sårbare for fysiske skader enn HDDer'],
             answer: 1
         }
-    ];    
-
+    ];
 
     // Start quiz ved lasting av siden
     displayQuestion();
 
+    // Funksjon for å vise quizzen
+    function showQuiz() {
+        const quizSection = document.getElementById('quiz');
+        quizSection.style.display = 'block';
+
+        const homeSection = document.getElementById('home');
+        const componentsSection = document.getElementById('components');
+        const connectionSection = document.getElementById('connection');
+        homeSection.style.display = 'none';
+        componentsSection.style.display = 'none';
+        connectionSection.style.display = 'none';
+    }
+
+    // Koble quiz-seksjonen til "Quiz"-lenken
+    const quizLink = document.querySelector('#quiz a[href="#quiz"]');
+    quizLink.addEventListener('click', showQuiz);
+
+    // Funksjon for å vise et spørsmål
+    function displayQuestion() {
+        const currentQuestionIndex = localStorage.getItem('currentQuestion')? parseInt(localStorage.getItem('currentQuestion')) : 0;
+        const question = questions[currentQuestionIndex]; // Bruk en tom array for å simulere spørsmålene
+        questionElement.textContent = question.question; // Simuler spørsmål tekst
+        optionsElement.innerHTML = ''; // Simuler alternativ
+        // TODO: Implementer logikk for å generere og vise alternativ basert på spørsmålets options-array
+        nextBtn.disabled = currentQuestionIndex === questions.length - 1; // Deaktivere "Neste" knappen for det siste spørsmålet
+    }
+
+    // Funksjon for å sjekke svaret
+    function checkAnswer(event) {
+        // TODO: Implementer logikk for å sjekke svaret mot riktig svar
+        alert("Svaret er valgt!"); // Simuler svarskjekk
+    }
+
+    // Funksjon for å gå til neste spørsmål
+    function nextQuestion() {
+        const currentQuestionIndex = parseInt(localStorage.getItem('currentQuestion'));
+        localStorage.setItem('currentQuestion', currentQuestionIndex + 1); // Oppdater indeksen
+        displayQuestion(); // Vise neste spørsmål
+    }
+
+    nextBtn.addEventListener('click', nextQuestion);
 });

@@ -1,3 +1,13 @@
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+section {
+    padding-left: 30px;
+    padding-right: 120px;
+}
+
 nav {
     background-color: #6f0000;
     color: #fff;
@@ -11,7 +21,7 @@ nav a {
     margin: 0 10px;
     padding: 6px 10px;
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: 7px;
 }
 
 nav a:hover {
@@ -33,7 +43,9 @@ main {
     background-color: #000000;
     color: #f0f004;
 }
-
+    #temafarge {
+    color: #000000;
+}
 .high-contrast nav {
     background-color: #f0f004;
     color: #000000;
@@ -44,11 +56,12 @@ main {
     color: #000000;
     border-color: #000000;
     border-width: 1px;
-    border-radius: 1px;
+    border-radius: 7px;
 }
 
 .high-contrast nav a:hover {
     background-color: #20ecfc;
+    transition: background-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
 }
 
 .high-contrast #quiz {
@@ -66,6 +79,7 @@ main {
     color: #000000;
     border-color: #20ecfc;
     /* outline-color: #f0f004; */
+    
 
 }
 
@@ -95,13 +109,13 @@ main {
 .high-contrast .nav-button {
     background-color: #f0f004;
     color: #000000;
-    border:#000000;
-    border-width: 10px;
+    border-color: #000000;
+    border-width: 2px;
 }
 
 .high-contrast .nav-button:hover {
     background-color: #20ecfc;
-    transition: background-color 0.5s ease, transform 5s ease;
+    transition: background-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
 }
 
 
@@ -129,7 +143,7 @@ main {
     font-size: 1em;
     border-color: #6f0000;
     border-width: 3px;
-    border-radius: 8px;
+    border-radius: 7px;
     cursor: pointer;
     background-color: #ffffff;
     color: #000000;
@@ -174,7 +188,7 @@ main {
     right: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 7px;
     z-index: 999; 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     color:#000000
@@ -205,7 +219,7 @@ main {
 .nav-button {
     color: #ffffff;
     background-color: #f004bd;
-    border-radius: 4px;
+    border-radius: 7px;
     padding: 6px 10px;
     margin: 0 10px;
     text-decoration: none;
@@ -216,7 +230,7 @@ main {
     color: #ffffff;
     background-color: #6f0000;
     /* border: none; */
-    border-radius: 4px;
+    border-radius: 7px;
     padding: 6px 10px;
     margin: 0 10px;
     cursor: pointer;
