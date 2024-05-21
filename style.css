@@ -4,13 +4,20 @@ body {
 }
 
 section {
-    padding-left: 30px;
-    padding-right: 120px;
+    margin-top: 20px;
+    margin-left: 450px;
+    margin-right: 360px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0 0 15px 5px #6f0000;
+    border-radius: 15px;
 }
 
 nav {
     background-color: #6f0000;
-    color: #fff;
+    color: #ff0000;
     padding: 10px;
     text-align: center;
 }
@@ -46,6 +53,19 @@ main {
     #temafarge {
     color: #000000;
 }
+
+.high-contrast section {
+    margin-left: 450px;
+    margin-right: 360px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0 0 10px 5px #20ecfc;
+    border-radius: 10px;
+
+}
+
 .high-contrast nav {
     background-color: #f0f004;
     color: #000000;
@@ -90,9 +110,6 @@ main {
     border-color: #f0f004;
     border-width: 7px;
     transition: border-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
-    /* outline-color: #f0f004;
-    outline-width: 7px;
-    transition: outline-color, outline-width 0.5s ease, transform 1s ease; */
 }
 
 .high-contrast #score {
@@ -103,9 +120,18 @@ main {
     background-color: #691919;
 }
 
+.dark-mode section {
+    background-color: #161616;
+}
+
 .light-mode .theme-button:hover {
     background-color: #6f0000;
 }
+
+.light-mode {
+    background-color: #ff00cc;
+}
+
 .high-contrast .nav-button {
     background-color: #f0f004;
     color: #000000;
@@ -194,7 +220,6 @@ main {
     color:#000000
 }
 
-/* Legg til stil for dialogboksen */
 .theme-popup {
     position: fixed;
     top: 50%;
@@ -209,12 +234,9 @@ main {
     box-shadow: 0px 0px 10px #6f0000;
 }
 
-/* Vis dialogboksen når klassen er aktivert */
 .show-theme-dialog .theme-popup {
     display: block;
 }
-
-/* Legg til disse stilene i style.css */
 
 .nav-button {
     color: #ffffff;

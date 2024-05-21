@@ -177,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const question = questions[currentQuestionIndex]; // Bruk en tom array for å simulere spørsmålene
         questionElement.textContent = question.question; // Simuler spørsmål tekst
         optionsElement.innerHTML = ''; // Simuler alternativ
-        // TODO: Implementer logikk for å generere og vise alternativ basert på spørsmålets options-array
         nextBtn.disabled = currentQuestionIndex === questions.length - 1; // Deaktivere "Neste" knappen for det siste spørsmålet
     }
 
