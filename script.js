@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             question: 'Hva er hovedfunksjonen til en prosessor?',
             options: ['Lagre data', 'Behandle data', 'Vise data', 'Overføre data'],
-            answer: 1 // Index av riktig svaralternativ
+            answer: 1
         },
         {
             question: 'Hva er RAM?',
@@ -174,22 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funksjon for å vise et spørsmål
     function displayQuestion() {
         const currentQuestionIndex = localStorage.getItem('currentQuestion')? parseInt(localStorage.getItem('currentQuestion')) : 0;
-        const question = questions[currentQuestionIndex]; // Bruk en tom array for å simulere spørsmålene
-        questionElement.textContent = question.question; // Simuler spørsmål tekst
-        optionsElement.innerHTML = ''; // Simuler alternativ
-        nextBtn.disabled = currentQuestionIndex === questions.length - 1; // Deaktivere "Neste" knappen for det siste spørsmålet
+        const question = questions[currentQuestionIndex];
+        questionElement.textContent = question.question;
+        optionsElement.innerHTML = '';
+        nextBtn.disabled = currentQuestionIndex === questions.length - 1;
     }
 
     // Funksjon for å sjekke svaret
     function checkAnswer(event) {
-        // TODO: Implementer logikk for å sjekke svaret mot riktig svar
-        alert("Svaret er valgt!"); // Simuler svarskjekk
+        alert("Svaret er valgt!");
     }
 
     // Funksjon for å gå til neste spørsmål
     function nextQuestion() {
         const currentQuestionIndex = parseInt(localStorage.getItem('currentQuestion'));
-        localStorage.setItem('currentQuestion', currentQuestionIndex + 1); // Oppdater indeksen
+        localStorage.setItem('currentQuestion', currentQuestionIndex + 1);
         displayQuestion(); // Vise neste spørsmål
     }
 
