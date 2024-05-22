@@ -70,19 +70,21 @@ document.addEventListener('DOMContentLoaded', function() {
         closeThemePopup();
         localStorage.setItem('theme', 'highContrast');
     });
+});
 
+document.addEventListener('DOMContentLoaded', function() {
     const quizSection = document.getElementById('quiz');
     const questionElement = document.getElementById('question');
     const optionsElement = document.getElementById('options');
     const nextBtn = document.getElementById('nextBtn');
-    const scoreElement = document.getElementById('scoreValue');
+    const scoreElement = document.getElementById('score');
+    const scoreValueElement = document.getElementById('scoreValue');
 
-    // Quizfunksjonalitet
     const questions = [
         {
             question: 'Hva er hovedfunksjonen til en prosessor?',
             options: ['Lagre data', 'Behandle data', 'Vise data', 'Overføre data'],
-            answer: 1
+            answer: 1 // Index av riktig svaralternativ
         },
         {
             question: 'Hva er RAM?',
@@ -151,46 +153,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Start quiz ved lasting av siden
-    displayQuestion();
+    let currentQuestionIndex = 0;
+    let score = 0;
 
-    // Funksjon for å vise quizzen
-    function showQuiz() {
-        const quizSection = document.getElementById('quiz');
-        quizSection.style.display = 'block';
-
-        const homeSection = document.getElementById('home');
-        const componentsSection = document.getElementById('components');
-        const connectionSection = document.getElementById('connection');
-        homeSection.style.display = 'none';
-        componentsSection.style.display = 'none';
-        connectionSection.style.display = 'none';
-    }
-
-    // Koble quiz-seksjonen til "Quiz"-lenken
-    const quizLink = document.querySelector('#quiz a[href="#quiz"]');
-    quizLink.addEventListener('click', showQuiz);
-
-    // Funksjon for å vise et spørsmål
     function displayQuestion() {
-        const currentQuestionIndex = localStorage.getItem('currentQuestion')? parseInt(localStorage.getItem('currentQuestion')) : 0;
-        const question = questions[currentQuestionIndex];
-        questionElement.textContent = question.question;
+        const currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
         optionsElement.innerHTML = '';
-        nextBtn.disabled = currentQuestionIndex === questions.length - 1;
+        currentQuestion.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.textContent = option;
+            button.addEventListener('click', () => handleAnswer(button, index));
+            optionsElement.appendChild(button);
+        });
+        nextBtn.classList.add('hidden');
     }
 
-    // Funksjon for å sjekke svaret
-    function checkAnswer(event) {
-        alert("Svaret er valgt!");
+    function handleAnswer(button, selectedIndex) {
+        const currentQuestion = questions[currentQuestionIndex];
+        if (selectedIndex === currentQuestion.answer) {
+            button.classList.add('correct');
+            score++;
+            scoreValueElement.textContent = score;
+        } else {
+            button.classList.add('incorrect');
+            // Vis riktig svar
+            optionsElement.children[currentQuestion.answer].classList.add('correct');
+        }
+        // Deaktiver alle knapper etter valg
+        Array.from(optionsElement.children).forEach(btn => {
+            btn.disabled = true;
+        });
+        nextBtn.classList.remove('hidden');
     }
 
-    // Funksjon for å gå til neste spørsmål
-    function nextQuestion() {
-        const currentQuestionIndex = parseInt(localStorage.getItem('currentQuestion'));
-        localStorage.setItem('currentQuestion', currentQuestionIndex + 1);
-        displayQuestion(); // Vise neste spørsmål
-    }
+    nextBtn.addEventListener('click', () => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            questionElement.textContent = 'Quiz ferdig!';
+            optionsElement.innerHTML = '';
+            nextBtn.classList.add('hidden');
+            scoreElement.classList.remove('hidden');
+        }
+    });
 
-    nextBtn.addEventListener('click', nextQuestion);
+    displayQuestion();
 });

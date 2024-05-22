@@ -1,6 +1,24 @@
-body {
-    padding-left: 10px;
-    padding-right: 10px;
+*, *::before, *::after {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font: inherit; 
+} 
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3rem;
+    line-height: 200%;
+}
+h3 {
+    font-size: 1.5rem;
+    line-height: 200%;
+}
+p {
+    line-height: 150%;
+    font-size: 1rem;
 }
 
 section #components, 
@@ -10,7 +28,7 @@ section #quiz   {
 }
 section {
     /* display: flex; */
-    border: 2px solid green;
+    border: 1px solid #990000;
     margin-top: 20px;
     max-width: 800px;
     margin-inline: auto;
@@ -130,15 +148,23 @@ main {
 }
 
 .dark-mode section {
-    background-color: #161616;
+    background-color: #1d1d1d;
 }
 
 .light-mode .theme-button:hover {
-    background-color: #6f0000;
+    background-color: #f004bd;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .light-mode {
-    background-color: #ff00cc;
+    background-color: #e1e1e1;
+    color: #000000;
+}
+.light-mode section {
+    background-color: #ffffff;
+
 }
 
 .high-contrast .nav-button {
@@ -271,5 +297,10 @@ main {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+.hidden { display: none; }
+.quiz-container { margin: 20px; }
+.quiz-options button { display: block; margin: 5px 0; padding: 10px; }
+.correct { background-color: green; color: white; }
+.incorrect { background-color: red; color: white; }
 
 /* fjern inline css, legg til padding og margin med stjerner øverst på siden */
