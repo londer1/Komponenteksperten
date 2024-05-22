@@ -23,21 +23,15 @@ p {
 
 section #components, 
 section #connection,
-section #quiz   {
+section #quiz {
     display: none;
 }
 section {
-    /* display: flex; */
     border: 1px solid #990000;
     margin-top: 20px;
     max-width: 800px;
     margin-inline: auto;
-    /* margin-left: 450px;
-    margin-right: 360px; */
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px 100px;
     box-shadow: 0 0 15px 5px #6f0000;
     border-radius: 15px;
 }
@@ -66,121 +60,6 @@ main {
     padding: 20px;
 }
 
-/* Mørkt tema */
-.dark-mode {
-    background-color: #121212;
-    color: #fff;
-}
-
-/* Høykontrast-tema */
-.high-contrast {
-    background-color: #000000;
-    color: #f0f004;
-}
-    #temafarge {
-    color: #000000;
-}
-
-.high-contrast section {
-    /* margin-left: 450px;
-    margin-right: 360px; */
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    box-shadow: 0 0 10px 5px #20ecfc;
-    border-radius: 10px;
-
-}
-
-.high-contrast nav {
-    background-color: #f0f004;
-    color: #000000;
-    padding: 15px 0;
-}
-
-.high-contrast nav a {
-    color: #000000;
-    border-color: #000000;
-    border-width: 1px;
-    border-radius: 7px;
-}
-
-.high-contrast nav a:hover {
-    background-color: #20ecfc;
-    transition: background-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
-}
-
-.high-contrast #quiz {
-    background-color: #000000;
-}
-
-.high-contrast #question {
-    color: #20ecfc;
-}
-
-.high-contrast #options button,
-.high-contrast #nextBtn {
-    width: 200px;
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #20ecfc;
-    /* outline-color: #f0f004; */
-    
-
-}
-
-.high-contrast #options button:hover,
-.high-contrast #nextBtn:hover {
-    background-color: #20ecfc;
-    transform: translateY(-2px);
-    border-color: #f0f004;
-    border-width: 7px;
-    transition: border-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
-}
-
-.high-contrast #score {
-    color: #ffffff;
-}
-
-.dark-mode .theme-button:hover {
-    background-color: #691919;
-}
-
-.dark-mode section {
-    background-color: #1d1d1d;
-}
-
-.light-mode .theme-button:hover {
-    background-color: #f004bd;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.light-mode {
-    background-color: #e1e1e1;
-    color: #000000;
-}
-.light-mode section {
-    background-color: #ffffff;
-
-}
-
-.high-contrast .nav-button {
-    background-color: #f0f004;
-    color: #000000;
-    border-color: #000000;
-    border-width: 2px;
-}
-
-.high-contrast .nav-button:hover {
-    background-color: #20ecfc;
-    transition: background-color, border-width 0.5s ease, transform 1s ease-out, transform 2s;
-}
-
-
-/* Quiz styling */
 #quiz {
     text-align: center;
 }
@@ -196,45 +75,37 @@ main {
     align-items: center;
 }
 
-#options button,
+#options .quiz-option,
 #nextBtn {
     width: 200px;
     margin: 10px;
     padding: 12px 20px;
     font-size: 1em;
-    border-color: #6f0000;
-    border-width: 3px;
+    border: 3px solid #6f0000;
     border-radius: 7px;
-    cursor: pointer;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 1s ease, transform 20s ease;
-    transition: color 0.7s ease, transform 20s ease;
-}
-
-#nextBtn {
-    width: 300px;
-    margin: 20px auto;
-    padding: 42px 40px;
-    border-color: #6f0000;
-    font-size: 1.4rem;
-    border-radius: 12px;
     cursor: pointer;
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#options button:hover,
+#nextBtn {
+    width: 300px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    border: 3px solid #6f0000;
+    font-size: 1.4rem;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#options .quiz-option:hover,
 #nextBtn:hover {
     color: #ffffff;
     background-color: #6f0000;
     transform: translateY(-2px);
-}
-
-#nextBtn {
-    margin-top: 100px;
-    font-size: 1.4rem;
 }
 
 #score {
@@ -242,7 +113,6 @@ main {
     margin-top: 20px;
 }
 
-/* Legg til stilregler for score */
 #score {
     position: fixed;
     top: 50px; 
@@ -252,7 +122,30 @@ main {
     border-radius: 7px;
     z-index: 999; 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    color:#000000
+    color: #000000;
+}
+
+.correct {
+    background-color: green !important;
+    color: white !important;
+}
+
+.incorrect {
+    background-color: red !important;
+    color: white !important;
+}
+
+.theme-button {
+    color: #ffffff;
+    background-color: #6f0000;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.theme-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .theme-popup {
@@ -273,34 +166,57 @@ main {
     display: block;
 }
 
-.nav-button {
-    color: #ffffff;
-    background-color: #f004bd;
-    border-radius: 7px;
-    padding: 6px 10px;
-    margin: 0 10px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.theme-button {
-    color: #ffffff;
-    background-color: #6f0000;
-    /* border: none; */
-    border-radius: 7px;
-    padding: 6px 10px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-.theme-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 .hidden { display: none; }
 .quiz-container { margin: 20px; }
-.quiz-options button { display: block; margin: 5px 0; padding: 10px; }
-.correct { background-color: green; color: white; }
-.incorrect { background-color: red; color: white; }
+.quiz-options .quiz-option { display: block; margin: 5px 0; padding: 10px; }
 
-/* fjern inline css, legg til padding og margin med stjerner øverst på siden */
+/* Mørkt tema */
+.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Høykontrast-tema */
+.high-contrast {
+    background-color: #000000;
+    color: #f0f004;
+}
+
+/* Tilleggsstiler for høykontrast-tema */
+.high-contrast nav {
+    background-color: #f0f004;
+    color: #000000;
+}
+
+.high-contrast nav a {
+    color: #000000;
+}
+
+.high-contrast nav a:hover {
+    background-color: #20ecfc;
+}
+
+.high-contrast #quiz {
+    background-color: #000000;
+}
+
+.high-contrast #question {
+    color: #20ecfc;
+}
+
+.high-contrast #options button,
+.high-contrast #nextBtn {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #20ecfc;
+}
+
+.high-contrast #options button:hover,
+.high-contrast #nextBtn:hover {
+    background-color: #20ecfc;
+    border-color: #f0f004;
+}
+
+.high-contrast #score {
+    color: #ffffff;
+}

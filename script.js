@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
     } else if (savedTheme === 'highContrast') {
-        document.body.classList.remove('dark-mode');
         document.body.classList.add('high-contrast');
+        document.body.classList.remove('dark-mode');
     }
 
     links.forEach(link => {
@@ -156,48 +156,51 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentQuestionIndex = 0;
     let score = 0;
 
-    function displayQuestion() {
-        const currentQuestion = questions[currentQuestionIndex];
-        questionElement.textContent = currentQuestion.question;
+    function showQuestion(questionIndex) {
+        const question = questions[questionIndex];
+        questionElement.textContent = question.question;
         optionsElement.innerHTML = '';
-        currentQuestion.options.forEach((option, index) => {
+
+        question.options.forEach((option, index) => {
             const button = document.createElement('button');
             button.textContent = option;
-            button.addEventListener('click', () => handleAnswer(button, index));
+            button.classList.add('quiz-option');
+            button.addEventListener('click', () => selectOption(index, question.answer, button));
             optionsElement.appendChild(button);
         });
-        nextBtn.classList.add('hidden');
     }
 
-    function handleAnswer(button, selectedIndex) {
-        const currentQuestion = questions[currentQuestionIndex];
-        if (selectedIndex === currentQuestion.answer) {
+    function selectOption(selectedIndex, correctIndex, button) {
+        if (selectedIndex === correctIndex) {
             button.classList.add('correct');
             score++;
-            scoreValueElement.textContent = score;
         } else {
             button.classList.add('incorrect');
-            // Vis riktig svar
-            optionsElement.children[currentQuestion.answer].classList.add('correct');
         }
-        // Deaktiver alle knapper etter valg
+
         Array.from(optionsElement.children).forEach(btn => {
             btn.disabled = true;
+            if (questions[currentQuestionIndex].options.indexOf(btn.textContent) === correctIndex) {
+                btn.classList.add('correct');
+            }
         });
-        nextBtn.classList.remove('hidden');
+
+        nextBtn.style.display = 'block';
     }
 
     nextBtn.addEventListener('click', () => {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
-            displayQuestion();
+            showQuestion(currentQuestionIndex);
         } else {
-            questionElement.textContent = 'Quiz ferdig!';
-            optionsElement.innerHTML = '';
-            nextBtn.classList.add('hidden');
-            scoreElement.classList.remove('hidden');
+            showScore();
         }
+        nextBtn.style.display = 'none';
     });
 
-    displayQuestion();
+    function showScore() {
+        quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
+    }
+
+    showQuestion(currentQuestionIndex);
 });
