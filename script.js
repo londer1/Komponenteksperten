@@ -154,4 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleFullscreenImage('ramImageContainer'); // Bruk riktig ID for bildet
         }
     });
+
+        
 });
