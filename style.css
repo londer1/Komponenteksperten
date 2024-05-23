@@ -27,6 +27,7 @@ section #quiz {
     display: none;
 }
 section {
+    display: none; /* Gjør seksjonene skjulte som standard */
     border: 1px solid #990000;
     margin-top: 20px;
     max-width: 800px;
@@ -35,6 +36,10 @@ section {
     box-shadow: 0 0 15px 5px #6f0000;
     border-radius: 15px;
 }
+section:target {
+    display: block; /* Vis seksjonen når den er målrettet */
+}
+
 
 
 
