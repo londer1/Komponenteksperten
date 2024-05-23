@@ -13,6 +13,30 @@ h1 {
 h2 {
     font-size: 3rem;
     line-height: 200%;
+    position: relative;
+    margin-bottom: 50px; /* Juster mellomrommet mellom h2 og understreken */
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 7px;
+    background-color: #A155B9;
+    margin: 1 auto; /* Sentrerer streken horisontalt */
+}
+
+#quiz h2::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 7px;
+    background-color: #A155B9; /* Standard farge for understreken */
+    margin: 0 auto; /* Sentrerer streken horisontalt */
+}
+
+.high-contrast h2::after {
+    background-color: #20ecfc;
 }
 
 h3 {
@@ -86,6 +110,13 @@ nav a:hover {
     color:#000000
 }
 
+.high-contrast #themeLink:hover {
+    background-color: #20ecfc;
+}
+
+#themeLink:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 main {
     padding: 20px;
 }
@@ -242,6 +273,7 @@ main {
 .high-contrast nav {
     background-color: #f0f004;
     color: #000000;
+    border-bottom: 4px solid #20ecfc;
 }
 
 .high-contrast nav a {
@@ -277,6 +309,14 @@ main {
     color: #ffffff;
 }
 
+.high-contrast section {
+    border-radius: 0px;
+    border-color: #20ecfc;
+    border-width: 5px;
+    box-shadow: 0 0 0px 0px #0b1354;
+}
+
+
 #ram-image {
     margin-top: 30px;
     margin-bottom: 10px;
@@ -302,4 +342,17 @@ main {
 
 .fullscreen-image.show img {
     transform: scale(2);
+}
+
+.high-contrast .fullscreen-image img {
+    transition: transform 0.5s ease-in-out;
+    max-width: 50%;
+    max-height: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 0 0 0px 0px #f3f3f3;
+    border: 5px solid #20ecfc; /* Endre farge for kantlinjen */
 }
