@@ -249,3 +249,30 @@ main {
 .high-contrast #score {
     color: #ffffff;
 }
+
+#ram-image {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 0 15px 5px #6f0000;
+    border: 2px solid #990000;
+}
+
+.fullscreen-image img {
+    transition: transform 0.5s ease-in-out;
+    max-width: 50%;
+    max-height: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 0 15px 5px #6f0000;
+    border: 2px solid #990000;
+}
+
+.fullscreen-image.show img {
+    transform: scale(2);
+}
