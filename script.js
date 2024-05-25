@@ -129,18 +129,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showQuestion(currentQuestionIndex);
 
-
-// Funksjon for å vise bildet i fullscreen
     function toggleFullscreenImage(imageId) {
         const image = document.getElementById(imageId);
         if (image.classList.contains('show')) {
-            image.classList.remove('show'); // Skjuler bildet hvis det allerede er i fullscreen
+            image.classList.remove('show');
         } else {
-            image.classList.add('show'); // Viser bildet i fullscreen
+            image.classList.add('show');
         }
     }
 
-    // Legg til event listener for klikk på bildet
     const ramImages = document.querySelectorAll('.fullscreen-image img');
     ramImages.forEach(img => {
         img.addEventListener('click', function() {
@@ -148,10 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Eksempel på hvordan du kan legge til en knapp for å lukke bildet
     document.addEventListener('keydown', function(event) {
         if(event.key === 'Escape') {
-            toggleFullscreenImage('ramImageContainer'); // Bruk riktig ID for bildet
+            toggleFullscreenImage('ramImageContainer');
         }
     });
 

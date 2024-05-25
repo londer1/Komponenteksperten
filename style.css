@@ -5,6 +5,10 @@
     font: inherit; 
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 h1 {
     font-size: 4rem;
 }
@@ -28,6 +32,7 @@ h2::after {
 .high-contrast p {
     color:#ffffff;
 }
+
 #quiz h2::after {
     content: '';
     display: block;
@@ -61,9 +66,9 @@ section {
     display: none;
     border: 1px solid #165BAA;
     margin-top: 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin-inline: auto;
-    padding: 90px 100px;
+    padding: 80px 70px;
     box-shadow: 0 0 25px 15px #0b1354;
     border-radius: 15px;
 }
@@ -75,7 +80,7 @@ section:target {
 nav {
     background-color: #0b1354;
     color: #ffffff;
-    padding: 10px;
+    padding: 11px;
     text-align: center;
     border-bottom: 4px solid #A155B9;
 }
@@ -386,7 +391,7 @@ main {
     max-width: 50%;
     max-height: auto;
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     max-width: 100%;
     height: auto;
     border-radius: 30px;
