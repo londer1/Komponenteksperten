@@ -128,9 +128,6 @@ nav a:hover {
     background-color: #20ecfc;
 }
 
-#themeLink:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
 main {
     padding: 20px;
 }
@@ -148,15 +145,17 @@ main {
 
 #options {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    height: 200px;
 }
 
-#options .quiz-option,
-#nextBtn {
-    width: 200px;
-    margin: 10px;
-    padding: 12px 20px;
+#options .quiz-option {
+    width: 174px;
+    height: 250px;
+    margin: 0;
+    padding: 20px;
     font-size: 1em;
     border: 3px solid #165BAA;
     border-radius: 7px;
@@ -164,18 +163,34 @@ main {
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    /* Legg til følgende regler for å tillate at teksten automatisk justeres ned i størrelse */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Endret fra nowrap til normal */
+    /* Legg til følgende for å tillate automatisk tilpasning av tekststørrelse */
+    text-size-adjust: auto;
 }
+
+
 
 #nextBtn {
     width: 300px;
+    height: 60px;
     margin: 20px auto;
     padding: 12px 20px;
     border: 3px solid #165BAA;
     font-size: 1.4rem;
     border-radius: 12px;
     cursor: pointer;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #cccccc;
+    color: #666666;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#nextBtn.clickable {
+    background-color: #165BAA;
+    color: #ffffff;
+    pointer-events: auto;
 }
 
 .high-contrast #options .quiz-option,
@@ -292,7 +307,6 @@ main {
     color: #000000;
 }
 
-
 .dark-mode .theme-button {
     background-color: #165BAA;
     color: #ffffff;
@@ -346,7 +360,9 @@ main {
     background-color: #000000;
 }
 
-.high-contrast #question {
+.high-contrast
+
+#question {
     color: #20ecfc;
 }
 
@@ -372,9 +388,7 @@ main {
     border-color: #20ecfc;
     border-width: 5px;
     box-shadow: 0 0 0px 0px #0b1354;
-    
 }
-
 
 #ram-image {
     margin-top: 30px;

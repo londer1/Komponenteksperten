@@ -62,21 +62,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreValueElement = document.getElementById('scoreValue');
 
     const questions = [
-        { question: 'Hva er hovedfunksjonen til en prosessor?', options: ['Lagre data', 'Behandle data', 'Vise data', 'Overføre data'], answer: 1 },
-        { question: 'Hva er RAM?', options: ['En type lagringsenhet', 'En type prosessor', 'En type minne', 'En type skjerm'], answer: 2 },
-        { question: 'Hva er formålet med en GPU (Graphics Processing Unit) i en datamaskin?', options: ['Utføre matematiske beregninger', 'Behandle grafikk og visuelle elementer', 'Kontrollere lagring og dataoverføring', 'Administrere nettverksforbindelser'], answer: 1 },
-        { question: 'Hvilken type minne brukes vanligvis til midlertidig lagring av data for rask tilgang av CPUen?', options: ['ROM (Read-Only Memory)', 'HDD (Hard Disk Drive)', 'SSD (Solid State Drive)', 'RAM (Random Access Memory)'], answer: 3 },
-        { question: 'Hva er formålet med en BIOS (Basic Input/Output System) i en datamaskin?', options: ['Administrere operativsystemet', 'Lagre permanent lagrede data', 'Kontrollere oppstart og grunnleggende maskinvarefunksjoner', 'Behandle nettverkstilkoblinger'], answer: 2 },
-        { question: 'Hvilken komponent er ansvarlig for å levere strøm til de forskjellige delene av en datamaskin?', options: ['PSU (Power Supply Unit)', 'CPU (Central Processing Unit)', 'GPU (Graphics Processing Unit)', 'RAM (Random Access Memory)'], answer: 0 },
-        { question: 'Hva er formålet med en Northbridge-southbridge-arkitektur på et hovedkort?', options: ['Administrere USB-tilkoblinger', 'Kontrollere lydutgang', 'Koordinere kommunikasjonen mellom CPU og systemkomponenter', 'Administrere trådløse nettverksforbindelser'], answer: 2 },
-        { question: 'Hvilken type port brukes vanligvis til å koble en skjerm til en datamaskin?', options: ['USB (Universal Serial Bus)', 'HDMI (High-Definition Multimedia Interface)', 'Ethernet', 'SATA (Serial Advanced Technology Attachment)'], answer: 1 },
-        { question: 'Hva er funksjonen til en CPU-kjøler i en datamaskin?', options: ['Å forhindre overoppheting av CPUen', 'Å forbedre grafikkytelsen', 'Å øke hastigheten på dataoverføring', 'Å forbedre nettverkssikkerheten'], answer: 0 },
-        { question: 'Hva er formålet med en nettverkskort i en datamaskin?', options: ['Å administrere strømforsyningen til systemet', 'Å koble datamaskinen til et nettverk', 'Å administrere lagring av data', 'Å forbedre lydkvaliteten'], answer: 1 },
-        { question: 'Hvilken type minne er ikke-flyktig og brukes til permanent lagring av data selv når datamaskinen er slått av?', options: ['RAM (Random Access Memory)', 'ROM (Read-Only Memory)', 'Cache-minne', 'Virtuelt minne'], answer: 1 },
-        { question: 'Hva er funksjonen til en SATA-port på et hovedkort?', options: ['Å koble datamaskinen til et nettverk', 'Å koble til interne lagringsenheter som harddisker og SSDer', 'Å administrere lydutgang', 'Å administrere USB-tilkoblinger'], answer: 1 },
-        { question: 'Hva er formålet med en M.2-kontakt på et hovedkort?', options: ['Å koble eksterne enheter til datamaskinen', 'Å administrere trådløse nettverksforbindelser', 'Å koble til eksterne skjermer', 'Å koble til raske PCIe-baserte lagringsenheter som SSDer'], answer: 3 },
-        { question: 'Hva er forskjellen mellom en mekanisk harddisk (HDD) og en Solid State Drive (SSD)?', options: ['HDDer er raskere enn SSDer', 'HDDer har bevegelige deler, mens SSDer ikke har det', 'SSDer har mindre lagringskapasitet enn HDDer', 'SSDer er mer sårbare for fysiske skader enn HDDer'], answer: 1 }
-    ];
+        { question: 'Hva er hovedkort også kjent som?', options: ['Motherboard eller MOBO', 'CPU', 'GPU', 'RAM'], answer: 3 },
+        { question: 'Hva er en annen betegnelse for prosessor?', options: ['CPU', 'GPU', 'RAM', 'SSD'], answer: 1 },
+        { question: 'Hva er RAM en forkortelse for?', options: ['Random Access Memory', 'Read Access Memory', 'Rapid Access Memory', 'Random Algorithm Memory'], answer: 0 },
+        { question: 'Hva er den primære forskjellen mellom en harddisk og en SSD?', options: ['En harddisk har mekaniske deler, mens en SSD er solid state', 'De er begge like raske', 'SSD er billigere enn harddisk', 'Harddisken har bedre holdbarhet enn SSD'], answer: 0 },
+        { question: 'Hva er hovedoppgaven til RAM?', options: ['Midlertidig lagring av data for rask tilgang', 'Permanent lagring av data', 'Grafikkproduksjon', 'Prosessering av komplekse beregninger'], answer: 0 },
+        { question: 'Hvorfor har grafikkortprisene økt nylig?', options: ['På grunn av økt etterspørsel fra kryptovalutamining og AI-teknologier', 'På grunn av fallende etterspørsel', 'På grunn av overproduksjon av grafikkort', 'På grunn av reduksjon i produksjonskostnader'], answer: 0 },
+        { question: 'Hva er spesielt med NVMe M.2 SSD?', options: ['Den sitter direkte på hovedkortet uten kabler, noe som reduserer forsinkelse', 'Den er større enn en vanlig SSD', 'Den har mekaniske deler', 'Den er mindre holdbar enn en vanlig SSD'], answer: 0 },
+        { question: 'Hvordan kan datamaskinkomponentenes samspill sammenlignes med et musikkorkester?', options: ['Hver del har sin spesifikke rolle, men de arbeider sammen for å skape noe større', 'Hver del jobber uavhengig uten å samarbeide', 'Det er ingen sammenligning', 'Komponentene er ikke viktige for datamaskinens funksjon'], answer: 0 },
+        { question: 'Hvordan kan å åpne et spill sammenlignes med å gi startsignalet til et racerteam?', options: ['Det setter alle datamaskinkomponentene i aksjon for å gi den beste spillopplevelsen', 'Det har ingen effekt på datamaskinens ytelse', 'Det får datamaskinen til å krasje', 'Det reduserer datamaskinens levetid'], answer: 0 },
+        { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Det holder temperaturen nede for å forhindre overoppheting', 'Det øker temperaturen for bedre ytelse', 'Det har ingen funksjon', 'Det forårsaker overoppheting'], answer: 0 },
+        { question: 'Hvordan kan bussene i en datamaskin sammenlignes med veier?', options: ['De fungerer som motorveier som tillater fri flyt av informasjon mellom komponentene', 'De begrenser informasjonsflyten', 'De har ingen sammenligning med veier', 'De er bare for dekorasjon'], answer: 0 }
+    ];       
 
     let currentQuestionIndex = 0;
     let score = 0;
@@ -123,10 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
         nextBtn.style.display = 'none';
     });
 
-    function showScore() {
-        quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
-    }
-
     showQuestion(currentQuestionIndex);
 
     function toggleFullscreenImage(imageId) {
@@ -151,5 +144,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-        
+//quiz next knapp av og på
+function selectOption(selectedIndex, correctIndex, button) {
+    if (selectedIndex === correctIndex) {
+        button.classList.add('correct');
+        score++;
+    } else {
+        button.classList.add('incorrect');
+    }
+
+    Array.from(optionsElement.children).forEach(btn => {
+        btn.disabled = true;
+        if (questions[currentQuestionIndex].options.indexOf(btn.textContent) === correctIndex) {
+            btn.classList.add('correct');
+        }
+    });
+
+    // Proceed to the next question after a short delay
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion(currentQuestionIndex);
+            nextBtn.style.display = 'none'; // Hide the "Neste" button for the new question
+        } else {
+            // Display the final score when all questions are answered
+            quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
+            optionsElement.innerHTML = '';
+            nextBtn.style.display = 'none';
+            scoreElement.classList.remove('hidden');
+            scoreValueElement.textContent = score;
+        }
+    }, 1500);
+}
 });
