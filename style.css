@@ -6,7 +6,18 @@
 }
 
 body {
+    background-color: #cccccc;
     font-family: 'Poppins', sans-serif;
+}
+
+.dark-mode body {
+    background-color: #121212;
+    color: #fff;
+}
+
+.high-contrast body {
+    background-color: #000000;
+    color: #f0f004;
 }
 
 h1 {
@@ -64,13 +75,14 @@ section #quiz {
 
 section {
     padding: 80px;
+    background-color: #ffffff;
     padding-block-start: 40px;
     display: none;
     border: 3px solid #165BAA;
     margin-top: 20px;
     max-width: 900px;
     margin-inline: auto;
-    box-shadow: 0 0 25px 1px #552c61;
+    box-shadow: 0 0 0px 0px #552c61;
     border-radius: 15px;
     margin-top: 80px;
 }
@@ -90,6 +102,7 @@ nav {
     text-align: center;
     z-index: 1; 
     width: 100%;
+    margin-bottom: 10px;
 }
 
 nav a {
@@ -97,6 +110,7 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
     padding: 6px 30px;
+    padding-bottom: 0px;
     border-radius: 7px;
     transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -108,12 +122,12 @@ nav a:hover {
 
 
 #themeLink {
-    max-height: 37px;
+    max-height: 31px;
     color: #ffffff;
     background-color: transparent;
     text-decoration: none;
     margin: 0 10px;
-    padding: 6px 10px;
+    padding: 6px 30px;
     border: 1px solid transparent;
     border-radius: 7px;
     cursor: pointer;
@@ -189,7 +203,7 @@ main {
     font-size: 1.4rem;
     border-radius: 12px;
     cursor: pointer;
-    background-color: #cccccc;
+    background-color: #fefefe;
     color: #666666;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -225,7 +239,7 @@ main {
     padding: 5px 10px;
     border-radius: 7px;
     z-index: 999; 
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
     color: #000000;
 }
 
@@ -265,7 +279,7 @@ main {
     display: none;
     z-index: 1000;
     border-radius: 7px;
-    box-shadow: 0 0 25px 1px #0b1354;
+    box-shadow: 0 0 0px 0px #0b1354;
     padding: 40px;
 }
 
@@ -286,7 +300,7 @@ main {
 .dark-mode .theme-popup {
     background-color: #252525;
     color: #ffffff;
-    box-shadow: 0 0 25px 1px #0a294e;
+    box-shadow: 0 0 0px 0px #0a294e;
     text-align: center;
 }
 
@@ -403,7 +417,7 @@ main {
     max-width: 100%;
     height: auto;
     border-radius: 30px;
-    box-shadow: 0 0 15px 1px #0b1354;
+    box-shadow: 0 0 0px 0px #0b1354;
     border: 2px solid #165BAA;
 }
 
@@ -416,7 +430,7 @@ main {
     max-width: 100%;
     height: auto;
     border-radius: 30px;
-    box-shadow: 0 0 15px 1px #0a294e;
+    box-shadow: 0 0 0px 0px #0a294e;
     border: 3px solid #A155B9;
 }
 
