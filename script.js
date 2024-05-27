@@ -165,9 +165,8 @@ function selectOption(selectedIndex, correctIndex, button) {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
             showQuestion(currentQuestionIndex);
-            nextBtn.style.display = 'none'; // Hide the "Neste" button for the new question
+            nextBtn.style.display = 'none';
         } else {
-            // Display the final score when all questions are answered
             quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
             optionsElement.innerHTML = '';
             nextBtn.style.display = 'none';

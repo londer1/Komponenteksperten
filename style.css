@@ -63,14 +63,16 @@ section #quiz {
 }
 
 section {
+    padding: 80px;
+    padding-block-start: 40px;
     display: none;
-    border: 1px solid #165BAA;
+    border: 3px solid #165BAA;
     margin-top: 20px;
     max-width: 900px;
     margin-inline: auto;
-    padding: 80px 70px;
-    box-shadow: 0 0 25px 15px #0b1354;
+    box-shadow: 0 0 25px 5px #552c61;
     border-radius: 15px;
+    margin-top: 80px;
 }
 
 section:target {
@@ -79,10 +81,16 @@ section:target {
 
 nav {
     background-color: #0b1354;
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #ffffff;
     padding: 11px;
     text-align: center;
     border-bottom: 4px solid #A155B9;
+    z-index: 1; 
+    width: 100%;
 }
 
 nav a {
@@ -279,7 +287,7 @@ main {
 .dark-mode .theme-popup {
     background-color: #252525;
     color: #ffffff;
-    box-shadow: 0 0 25px 10px #0b1354;
+    box-shadow: 0 0 25px 10px #0a294e;
     text-align: center;
 }
 
@@ -409,8 +417,8 @@ main {
     max-width: 100%;
     height: auto;
     border-radius: 30px;
-    box-shadow: 0 0 25px 15px #0b1354;
-    border: 2px solid #A155B9;
+    box-shadow: 0 0 15px 10px #0a294e;
+    border: 3px solid #A155B9;
 }
 
 .fullscreen-image.show img {
