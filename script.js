@@ -160,7 +160,6 @@ function selectOption(selectedIndex, correctIndex, button) {
         }
     });
 
-    // Proceed to the next question after a short delay
     setTimeout(() => {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
@@ -175,4 +174,15 @@ function selectOption(selectedIndex, correctIndex, button) {
         }
     }, 1500);
 }
+
+//progressjonsbar
+window.onscroll = function() { myFunction() };
+
+function myFunction() {
+    const winScroll = window.scrollY || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("minBar").style.width = scrolled + "%";
+}
+
 });
