@@ -127,7 +127,7 @@ nav a:hover {
     background-color: transparent;
     text-decoration: none;
     margin: 0 10px;
-    padding: 6px 30px;
+    padding: 0px 30px;
     border: 1px solid transparent;
     border-radius: 7px;
     cursor: pointer;
@@ -491,13 +491,22 @@ nav#minNav img {
     padding-right:10px;
 }
 
-nav#minNav .icon img {
-    vertical-align: middle;
-    padding-bottom: 5px;
+nav#minNav img #ThemeLink {
+    width: 8px;
+    height: 8px;
+    padding-right:0px;
 }
 
-nav#minNav.nav-button.theme-button span.icon img[src="/ikoner/brushh.svg"] {
-    width: 30px;
-    height: 30px;
-    padding-right: 10px;
+nav#minNav .icon img {
+    vertical-align: middle;
+    padding-bottom: 0px;
+}
+
+
+nav#minNav.icon img[src="/ikoner/home.svg"] {
+    color: #ff0084;
+}
+
+nav#minNav.icon img[src="/ikoner/gpuu.svg"] {
+    /* Your styles here */
 }
