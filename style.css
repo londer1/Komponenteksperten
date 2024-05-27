@@ -501,12 +501,3 @@ nav#minNav .icon img {
     vertical-align: middle;
     padding-bottom: 0px;
 }
-
-
-nav#minNav.icon img[src="/ikoner/home.svg"] {
-    color: #ff0084;
-}
-
-nav#minNav.icon img[src="/ikoner/gpuu.svg"] {
-    /* Your styles here */
-}
