@@ -109,7 +109,7 @@ nav a {
     color: #ffffff;
     text-decoration: none;
     margin: 0 10px;
-    padding: 6px 30px;
+    padding: 6px 15px;
     padding-bottom: 0px;
     border-radius: 7px;
     transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
@@ -484,3 +484,20 @@ main {
 }
 
 /* ikonigrafi, fjerne skygge neon ting, https://thenounproject.com/search/icons/?q=computer+components */
+
+nav#minNav img {
+    width: 38px;
+    height: 38px;
+    padding-right:10px;
+}
+
+nav#minNav .icon img {
+    vertical-align: middle;
+    padding-bottom: 5px;
+}
+
+nav#minNav.nav-button.theme-button span.icon img[src="/ikoner/brushh.svg"] {
+    width: 30px;
+    height: 30px;
+    padding-right: 10px;
+}
