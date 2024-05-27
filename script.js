@@ -184,5 +184,4 @@ function myFunction() {
     const scrolled = (winScroll / height) * 100;
     document.getElementById("minBar").style.width = scrolled + "%";
 }
-
 });

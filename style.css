@@ -70,7 +70,7 @@ section {
     margin-top: 20px;
     max-width: 900px;
     margin-inline: auto;
-    box-shadow: 0 0 25px 5px #552c61;
+    box-shadow: 0 0 25px 1px #552c61;
     border-radius: 15px;
     margin-top: 80px;
 }
@@ -82,11 +82,11 @@ section:target {
 nav {
     background-color: #0b1354;
     position: fixed;
-    top: 3%;
+    top: 20px;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    padding: 11px;
+    padding-top: 10px;
     text-align: center;
     z-index: 1; 
     width: 100%;
@@ -96,7 +96,7 @@ nav a {
     color: #ffffff;
     text-decoration: none;
     margin: 0 10px;
-    padding: 6px 10px;
+    padding: 6px 30px;
     border-radius: 7px;
     transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -106,7 +106,9 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+
 #themeLink {
+    max-height: 37px;
     color: #ffffff;
     background-color: transparent;
     text-decoration: none;
@@ -223,7 +225,7 @@ main {
     padding: 5px 10px;
     border-radius: 7px;
     z-index: 999; 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
     color: #000000;
 }
 
@@ -263,7 +265,7 @@ main {
     display: none;
     z-index: 1000;
     border-radius: 7px;
-    box-shadow: 0 0 25px 10px #0b1354;
+    box-shadow: 0 0 25px 1px #0b1354;
     padding: 40px;
 }
 
@@ -284,7 +286,7 @@ main {
 .dark-mode .theme-popup {
     background-color: #252525;
     color: #ffffff;
-    box-shadow: 0 0 25px 10px #0a294e;
+    box-shadow: 0 0 25px 1px #0a294e;
     text-align: center;
 }
 
@@ -401,7 +403,7 @@ main {
     max-width: 100%;
     height: auto;
     border-radius: 30px;
-    box-shadow: 0 0 15px 5px #0b1354;
+    box-shadow: 0 0 15px 1px #0b1354;
     border: 2px solid #165BAA;
 }
 
@@ -414,7 +416,7 @@ main {
     max-width: 100%;
     height: auto;
     border-radius: 30px;
-    box-shadow: 0 0 15px 10px #0a294e;
+    box-shadow: 0 0 15px 1px #0a294e;
     border: 3px solid #A155B9;
 }
 
@@ -440,13 +442,13 @@ main {
     top: 0;
     z-index: 1;
     width: 100%;
-    background-color: #0b1354;
+    background-color: #165BAA;
 }
 
 .progressjons-container {
     width: 100%;
-    height: 8px;
-    background: #0b1354;
+    height: 4px;
+    background: #165BAA;
 }
 
 .progressjons-bar {
@@ -454,3 +456,17 @@ main {
     background: #de73ff;
     width: 0%;
 }
+
+.icon-home::before,
+.icon-components::before,
+.icon-connection::before,
+.icon-quiz::before,
+.icon-theme::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* ikonigrafi, fjerne skygge neon ting, https://thenounproject.com/search/icons/?q=computer+components */
