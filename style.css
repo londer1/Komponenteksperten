@@ -8,7 +8,7 @@ body{
     background-color: #cccccc;
     font-family: 'Poppins', sans-serif;
 }
-.dark-mode body {
+.dark-mode body{
     background-color: #121212;
     color: #fff;
 }
@@ -398,6 +398,18 @@ main{
     background: #de73ff;
     width: 0%;
 }
+
+.high-contrast .progressjons-container{
+    width: 100%;
+    height: 4px;
+    background: #f0f004;
+}
+
+.high-contrast .progressjons-bar{
+    height: 4px;
+    background: #20ecfc;
+    width: 0%;
+}
 .icon-home::before,
 .icon-components::before,
 .icon-connection::before,
@@ -409,9 +421,7 @@ main{
     vertical-align: middle;
     margin-right: 8px;
 }
-
 /* ikonigrafi, fjerne skygge neon ting, https://thenounproject.com/search/icons/?q=computer+components */
-
 nav#minNav img{
     width: 38px;
     height: 38px;
