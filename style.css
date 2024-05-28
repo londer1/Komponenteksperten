@@ -41,7 +41,7 @@ h2::after {
 }
 
 .high-contrast p {
-    color:#ffffff;
+    color:#000000;
 }
 
 #quiz h2::after {
@@ -116,7 +116,7 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom: 2px solid #165BAA;
+    border-bottom: 2px solid #A155B9;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -134,7 +134,7 @@ nav a:hover {
 }
 
 #themeLink:hover {
-    border-bottom: 2px solid #165BAA;
+    border-bottom: 2px solid #A155B9;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -142,9 +142,8 @@ nav a:hover {
     color: #000000;
     border: 4px solid #000000;
     border-radius: 0px;
-    padding: 6px 10px;
-    margin: 0 10px;
     background-color: transparent;
+    max-height: 37px;
 }
 
 .high-contrast #themeLink:hover {
@@ -364,7 +363,7 @@ main {
 .high-contrast nav {
     background-color: #f0f004;
     color: #000000;
-    border-bottom: 4px solid #20ecfc;
+
 }
 
 .high-contrast nav a {
@@ -501,3 +500,84 @@ nav#minNav .icon img {
     vertical-align: middle;
     padding-bottom: 0px;
 }
+
+span.iconCPU {
+    padding-right: 2px;
+}
+
+span.iconCPU img {
+    width: 28px;
+    height: 28px;
+    padding-top: 11px;
+}
+
+span.iconRAM {
+    padding-right: 2px;
+}
+
+span.iconRAM img {
+    width: 28px;
+    height: 28px;
+    padding-top: 11px;
+}
+
+span.iconMOBO {
+    padding-right: 5px;
+}
+
+span.iconMOBO img {
+    width: 28px;
+    height: 28px;
+    padding-top: 11px;
+}
+
+span.iconGPU {
+    padding-right: 10px;
+}
+
+span.iconGPU img {
+    width: 28px;
+    height: 28px;
+    padding-top: 11px;
+}
+
+span.iconHDD {
+    padding-right: 5px;
+}
+
+span.iconHDD img {
+    width: 28px;
+    height: 28px;
+    padding-top: 11px;
+}
+
+span.iconSSD {
+    padding-right: 8px;
+}
+
+span.iconSSD img {
+    width: 28px;
+    height: 28px;
+    padding-top: 9px;
+}
+
+/* lys */
+body:not(.dark-mode) .iconCPU img,
+body:not(.dark-mode) .iconRAM img,
+body:not(.dark-mode) .iconMOBO img,
+body:not(.dark-mode) .iconGPU img,
+body:not(.dark-mode) .iconHDD img,
+body:not(.dark-mode) .iconSSD img {
+    filter: invert(100%);
+}
+
+/* mørk */
+.dark-mode .iconCPU img,
+.dark-mode .iconRAM img,
+.dark-mode .iconMOBO img,
+.dark-mode .iconGPU img,
+.dark-mode .iconHDD img,
+.dark-mode .iconSSD img {
+    filter: invert(0%);
+}
+
