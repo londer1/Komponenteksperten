@@ -1,37 +1,31 @@
-*, *::before, *::after {
+*, *::before, *::after{
     box-sizing: border-box; 
     margin: 0; 
     padding: 0; 
     font: inherit; 
 }
-
-body {
+body{
     background-color: #cccccc;
     font-family: 'Poppins', sans-serif;
 }
-
 .dark-mode body {
     background-color: #121212;
     color: #fff;
 }
-
-.high-contrast body {
+.high-contrast body{
     background-color: #000000;
     color: #f0f004;
 }
-
-h1 {
+h1{
     font-size: 4rem;
 }
-
-h2 {
+h2{
     font-size: 3rem;
     line-height: 200%;
     position: relative;
     margin-bottom: 50px;
 }
-
-h2::after {
+h2::after{
     content: '';
     display: block;
     width: 40%;
@@ -39,12 +33,10 @@ h2::after {
     background-color: #A155B9;
     margin: 1 auto;
 }
-
-.high-contrast p {
+.high-contrast p{
     color:#000000;
 }
-
-#quiz h2::after {
+#quiz h2::after{
     content: '';
     display: block;
     width: 40%;
@@ -52,28 +44,23 @@ h2::after {
     background-color: #A155B9;
     margin: 0 auto;
 }
-
-.high-contrast h2::after {
+.high-contrast h2::after{
     background-color: #20ecfc;
 }
-
-h3 {
+h3{
     font-size: 1.5rem;
     line-height: 200%;
 }
-
-p {
+p{
     line-height: 150%;
     font-size: 1rem;
 }
-
 section #components, 
 section #connection,
-section #quiz {
+section #quiz{
     display: none;
 }
-
-section {
+section{
     padding: 80px;
     background-color: #ffffff;
     padding-block-start: 40px;
@@ -86,12 +73,10 @@ section {
     border-radius: 15px;
     margin-top: 80px;
 }
-
-section:target {
+section:target{
     display: block;
 }
-
-nav {
+nav{
     background-color: #0b1354;
     position: fixed;
     top: 20px;
@@ -104,8 +89,7 @@ nav {
     width: 100%;
     margin-bottom: 10px;
 }
-
-nav a {
+nav a{
     color: #ffffff;
     text-decoration: none;
     margin: 0 10px;
@@ -114,14 +98,11 @@ nav a {
     border-radius: 7px;
     transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
 }
-
-nav a:hover {
+nav a:hover{
     border-bottom: 2px solid #A155B9;
     background-color: rgba(255, 255, 255, 0.1);
 }
-
-
-#themeLink {
+#themeLink{
     max-height: 31px;
     color: #ffffff;
     background-color: transparent;
@@ -132,12 +113,10 @@ nav a:hover {
     border-radius: 7px;
     cursor: pointer;
 }
-
-#themeLink:hover {
+#themeLink:hover{
     border-bottom: 2px solid #A155B9;
     background-color: rgba(255, 255, 255, 0.1);
 }
-
 .high-contrast #themeLink{
     color: #000000;
     border: 4px solid #000000;
@@ -145,35 +124,29 @@ nav a:hover {
     background-color: transparent;
     max-height: 37px;
 }
-
-.high-contrast #themeLink:hover {
+.high-contrast #themeLink:hover{
     background-color: #20ecfc;
 }
-
-main {
+main{
     padding: 20px;
 }
-
-#quiz {
+#quiz{
     text-align: center;
     margin: 0 auto;
     margin-top: 20px;
 }
-
-#question {
+#question{
     font-size: 1.2em;
     margin-bottom: 20px;
 }
-
-#options {
+#options{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     height: 200px;
 }
-
-#options .quiz-option {
+#options .quiz-option{
     width: 174px;
     height: 250px;
     margin: 0;
@@ -190,10 +163,7 @@ main {
     white-space: normal;
     text-size-adjust: auto;
 }
-
-
-
-#nextBtn {
+#nextBtn{
     width: 300px;
     height: 60px;
     margin: 20px auto;
@@ -206,31 +176,26 @@ main {
     color: #666666;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
-
-#nextBtn.clickable {
+#nextBtn.clickable{
     background-color: #165BAA;
     color: #ffffff;
     pointer-events: auto;
 }
-
 .high-contrast #options .quiz-option,
-.high-contrast #nextBtn {
+.high-contrast #nextBtn{
     border-radius: 0px;
 }
-
 #options .quiz-option:hover,
-#nextBtn:hover {
+#nextBtn:hover{
     color: #ffffff;
     background-color: #165BAA;
     transform: translateY(-2px);
 }
-
-#score {
+#score{
     font-size: 1.2em;
     margin-top: 20px;
 }
-
-#score {
+#score{
     position: fixed;
     top: 50px; 
     right: 20px;
@@ -241,18 +206,15 @@ main {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
     color: #000000;
 }
-
-.correct {
+.correct{
     background-color: green !important;
     color: white !important;
 }
-
-.incorrect {
+.incorrect{
     background-color: red !important;
     color: white !important;
 }
-
-.theme-button {
+.theme-button{
     color: #ffffff;
     background-color: #165BAA;
     border-radius: 7px;
@@ -260,14 +222,12 @@ main {
     margin: 0 10px;
     cursor: pointer;
 }
-
-.theme-button:hover {
+.theme-button:hover{
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
 }
-
-.theme-popup {
+.theme-popup{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -281,29 +241,24 @@ main {
     box-shadow: 0 0 0px 0px #0b1354;
     padding: 40px;
 }
-
-.show-theme-dialog .theme-popup {
+.show-theme-dialog .theme-popup{
     display: block;
 }
-
-.hidden { display: none; }
-.quiz-container { margin: 20px; }
-.quiz-options .quiz-option { display: block; margin: 5px 0; padding: 10px; }
-
+.hidden{ display: none; }
+.quiz-container{ margin: 20px; }
+.quiz-options .quiz-option{ display: block; margin: 5px 0; padding: 10px; }
 /* Mørkt tema */
-.dark-mode {
+.dark-mode{
     background-color: #121212;
     color: #fff;
 }
-
-.dark-mode .theme-popup {
+.dark-mode .theme-popup{
     background-color: #252525;
     color: #ffffff;
     box-shadow: 0 0 0px 0px #0a294e;
     text-align: center;
 }
-
-.high-contrast .theme-popup {
+.high-contrast .theme-popup{
     background-color: #000000;
     color: #f0f004;
     border-color:#20ecfc; 
@@ -312,8 +267,7 @@ main {
     text-align: center;
     border-radius: 0px;
 }
-
-.high-contrast .theme-popup .theme-button {
+.high-contrast .theme-popup .theme-button{
     color: #f0f004;
     border: 4px solid #f0f004;
     border-radius: 0px;
@@ -321,96 +275,77 @@ main {
     margin: 0 10px;
     background-color: transparent;
 }
-
-.high-contrast .theme-popup .theme-button:hover {
+.high-contrast .theme-popup .theme-button:hover{
     background-color: #20ecfc;
     color: #000000;
 }
-
-.dark-mode .theme-button {
+.dark-mode .theme-button{
     background-color: #165BAA;
     color: #ffffff;
 }
-
-.dark-mode .theme-button:hover {
+.dark-mode .theme-button:hover{
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
-
-.high-contrast .theme-button {
+.high-contrast .theme-button{
     background-color: #ffffff;
     color: #000000;
     border-color: #20ecfc;
     border-width: 5px;
 }
-
-.high-contrast .theme-button:hover {
+.high-contrast .theme-button:hover{
     background-color: #20ecfc;
     color: #000000;
 }
-
 .dark-mode section,
-.dark-mode #score {
+.dark-mode #score{
     background-color: #252525;
 }
-
-.high-contrast {
+.high-contrast{
     background-color: #000000;
     color: #f0f004;
 }
-
-.high-contrast nav {
+.high-contrast nav{
     background-color: #f0f004;
     color: #000000;
-
 }
-
-.high-contrast nav a {
+.high-contrast nav a{
     color: #000000;
     border: 4px solid #000000;
     border-radius: 0px;
 }
-
-.high-contrast nav a:hover {
+.high-contrast nav a:hover{
     background-color: #20ecfc;
 }
-
-.high-contrast #quiz {
+.high-contrast #quiz{
     background-color: #000000;
 }
-
 .high-contrast
-
-#question {
+#question{
     color: #20ecfc;
 }
-
 .high-contrast #options button,
-.high-contrast #nextBtn {
+.high-contrast #nextBtn{
     background-color: #ffffff;
     color: #000000;
     border-color: #20ecfc;
 }
-
 .high-contrast #options button:hover,
-.high-contrast #nextBtn:hover {
+.high-contrast #nextBtn:hover{
     background-color: #20ecfc;
     border-color: #f0f004;
 }
-
-.high-contrast #score {
+.high-contrast #score{
     color: #ffffff;
 }
-
-.high-contrast section {
+.high-contrast section{
     border-radius: 0px;
     border-color: #20ecfc;
     border-width: 5px;
     box-shadow: 0 0 0px 0px #0b1354;
 }
-
-#ram-image {
+#ram-image{
     margin-top: 30px;
     margin-bottom: 10px;
     max-width: 100%;
@@ -419,8 +354,7 @@ main {
     box-shadow: 0 0 0px 0px #0b1354;
     border: 2px solid #165BAA;
 }
-
-.fullscreen-image img {
+.fullscreen-image img{
     transition: transform 0.5s ease-in-out;
     max-width: 50%;
     max-height: auto;
@@ -432,12 +366,10 @@ main {
     box-shadow: 0 0 0px 0px #0a294e;
     border: 3px solid #A155B9;
 }
-
-.fullscreen-image.show img {
+.fullscreen-image.show img{
     transform: scale(2);
 }
-
-.high-contrast .fullscreen-image img {
+.high-contrast .fullscreen-image img{
     transition: transform 0.5s ease-in-out;
     max-width: 50%;
     max-height: auto;
@@ -449,32 +381,28 @@ main {
     box-shadow: 0 0 0px 0px #f3f3f3;
     border: 2.5px solid #20ecfc;
 }
-
-.minNav {
+.minNav{
     position: fixed;
     top: 0;
     z-index: 1;
     width: 100%;
     background-color: #165BAA;
 }
-
-.progressjons-container {
+.progressjons-container{
     width: 100%;
     height: 4px;
     background: #165BAA;
 }
-
-.progressjons-bar {
+.progressjons-bar{
     height: 4px;
     background: #de73ff;
     width: 0%;
 }
-
 .icon-home::before,
 .icon-components::before,
 .icon-connection::before,
 .icon-quiz::before,
-.icon-theme::before {
+.icon-theme::before{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     display: inline-block;
@@ -484,100 +412,93 @@ main {
 
 /* ikonigrafi, fjerne skygge neon ting, https://thenounproject.com/search/icons/?q=computer+components */
 
-nav#minNav img {
+nav#minNav img{
     width: 38px;
     height: 38px;
     padding-right:10px;
 }
-
-nav#minNav img #ThemeLink {
+nav#minNav img #ThemeLink{
     width: 8px;
     height: 8px;
     padding-right:0px;
 }
-
-nav#minNav .icon img {
+nav#minNav .icon img{
     vertical-align: middle;
     padding-bottom: 0px;
 }
-
-span.iconCPU {
+span.iconCPU{
     padding-right: 2px;
 }
-
-span.iconCPU img {
+span.iconCPU img{
     width: 28px;
     height: 28px;
     padding-top: 11px;
 }
-
-span.iconRAM {
+span.iconRAM{
     padding-right: 2px;
 }
-
-span.iconRAM img {
+span.iconRAM img{
     width: 28px;
     height: 28px;
     padding-top: 11px;
 }
-
-span.iconMOBO {
+span.iconMOBO{
     padding-right: 5px;
 }
-
-span.iconMOBO img {
+span.iconMOBO img{
     width: 28px;
     height: 28px;
     padding-top: 11px;
 }
-
-span.iconGPU {
+span.iconGPU{
     padding-right: 10px;
 }
-
-span.iconGPU img {
+span.iconGPU img{
     width: 28px;
     height: 28px;
     padding-top: 11px;
 }
-
-span.iconHDD {
+span.iconHDD{
     padding-right: 5px;
 }
-
-span.iconHDD img {
+span.iconHDD img{
     width: 28px;
     height: 28px;
     padding-top: 11px;
 }
-
-span.iconSSD {
+span.iconSSD{
     padding-right: 8px;
 }
-
-span.iconSSD img {
+span.iconSSD img{
     width: 28px;
     height: 28px;
     padding-top: 9px;
 }
-
 /* lys */
 body:not(.dark-mode) .iconCPU img,
 body:not(.dark-mode) .iconRAM img,
 body:not(.dark-mode) .iconMOBO img,
 body:not(.dark-mode) .iconGPU img,
 body:not(.dark-mode) .iconHDD img,
-body:not(.dark-mode) .iconSSD img {
+body:not(.dark-mode) .iconSSD img{
     filter: invert(100%);
 }
-
 /* mørk */
 .dark-mode .iconCPU img,
 .dark-mode .iconRAM img,
 .dark-mode .iconMOBO img,
 .dark-mode .iconGPU img,
 .dark-mode .iconHDD img,
-.dark-mode .iconSSD img {
+.dark-mode .iconSSD img{
     filter: invert(0%);
 }
-
+/* høykontrast*/
+.high-contrast .icon img,
+.high-contrast .iconCPU img,
+.high-contrast .iconRAM img,
+.high-contrast .iconMOBO img,
+.high-contrast .iconGPU img,
+.high-contrast .iconHDD img,
+.high-contrast .iconSSD img{
+    filter: invert(100%);
+}
