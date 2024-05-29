@@ -66,7 +66,7 @@ section{
     padding-block-start: 40px;
     display: none;
     border: 3px solid #165BAA;
-    margin-top: 80px;
+    margin-top: 50px;
     max-width: 900px;
     margin-inline: auto;
     box-shadow: 0 0 0px 0px #552c61;
@@ -106,8 +106,8 @@ nav a:hover{
     color: #ffffff;
     background-color: transparent;
     text-decoration: none;
-    margin: 0 10px;
-    padding: 0px 15px;
+    margin: 0 5px;
+    padding: 1px 15px;
     border: 0px solid transparent;
     border-radius: 7px;
     cursor: pointer;
@@ -132,7 +132,7 @@ main{
 #quiz{
     text-align: center;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 #question{
     font-size: 1.2em;
@@ -423,13 +423,14 @@ main{
     margin-right: 8px;
 }
 nav#minNav img{
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
+    padding-right: 10px;
 
 }
 nav#minNav img #ThemeLink{
-    width: 8px;
-    height: 8px;
+    width: 35px;
+    height: 35px;
 
 }
 nav#minNav .icon img{
@@ -527,13 +528,13 @@ body:not(.dark-mode) .iconSSD img{
 .mineBilder img{
     width: 100%;
     border-radius: 5px;
+    transition: opacity 1.5s ease; /* Legg til overgangseffekt */
 }
 .fade {
-    animation: fade 1.5s;
+    opacity: 0;
 }
-@keyframes fade {
-    from { opacity: 0.4 } 
-    to { opacity: 1 }
+.fade.active {
+    opacity: 1;
 }
 .fremdrifts-bar {
     height: 5px;
