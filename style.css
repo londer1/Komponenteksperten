@@ -540,11 +540,18 @@ body:not(.dark-mode) .iconSSD img{
     to { opacity: 1 }
 }
 .fremdrifts-bar {
-    width: 0;
     height: 5px;
     background-color: #A155B9;
     position: absolute;
     bottom: 0;
     left: 0;
-    transition: width 0.1s ease-in-out;
+    animation: fremdrift 3s linear infinite;
+}
+@keyframes fremdrift {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
 }

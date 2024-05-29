@@ -186,33 +186,21 @@ function myFunction() {
 }
 });
 
-//dritfancy slideshow ting
+// dritfancy slideshow ting
 let slideIndex = 0;
-let fremdriftsBar = document.getElementById('fremdriftsBar');
 visBilder();
 
 function visBilder() {
     let bilder = document.getElementsByClassName("mineBilder");
+    let fremdriftsBar = document.querySelector('.fremdrifts-bar');
     for (let i = 0; i < bilder.length; i++) {
         bilder[i].style.display = "none";
     }
     slideIndex++;
     if (slideIndex > bilder.length) { slideIndex = 1 }
     bilder[slideIndex - 1].style.display = "block";
-    oppdaterFremdriftsBar();
+    fremdriftsBar.style.width = '0'; // Tilbakestill fremdriftsindikator
+    void fremdriftsBar.offsetWidth; // Trigger reflow for å aktivere animasjonen
+    fremdriftsBar.style.width = '100%'; // Start fremdriftsindikator-animasjon
     setTimeout(visBilder, 3000); // Bytt bilde hvert 3. sekund
-}
-
-function oppdaterFremdriftsBar() {
-    fremdriftsBar.style.width = '0%';
-    let bredde = 0;
-    let id = setInterval(frame, 30);
-    function frame() {
-        if (bredde >= 100) {
-            clearInterval(id);
-        } else {
-            bredde++; 
-            fremdriftsBar.style.width = bredde + '%'; 
-        }
-    }
 }
