@@ -188,29 +188,31 @@ function myFunction() {
 
 //dritfancy slideshow ting
 let slideIndex = 0;
-const bilder = document.getElementsByClassName("mineBilder");
-const fremdriftsBar = document.getElementById('fremdriftsBar');
+let fremdriftsBar = document.getElementById('fremdriftsBar');
+visBilder();
 
 function visBilder() {
+    let bilder = document.getElementsByClassName("mineBilder");
     for (let i = 0; i < bilder.length; i++) {
-        bilder[i].classList.remove('vises');
+        bilder[i].style.display = "none";
     }
-    
     slideIndex++;
     if (slideIndex > bilder.length) { slideIndex = 1 }
-    
-    const currentSlide = bilder[slideIndex - 1];
-    currentSlide.classList.add('vises');
-    
+    bilder[slideIndex - 1].style.display = "block";
     oppdaterFremdriftsBar();
-    setTimeout(visBilder, 3000);
+    setTimeout(visBilder, 3000); // Bytt bilde hvert 3. sekund
 }
 
 function oppdaterFremdriftsBar() {
     fremdriftsBar.style.width = '0%';
-    setTimeout(() => {
-        fremdriftsBar.style.width = '100%';
-    }, 100);
+    let bredde = 0;
+    let id = setInterval(frame, 30);
+    function frame() {
+        if (bredde >= 100) {
+            clearInterval(id);
+        } else {
+            bredde++; 
+            fremdriftsBar.style.width = bredde + '%'; 
+        }
+    }
 }
-
-visBilder();

@@ -517,36 +517,34 @@ body:not(.dark-mode) .iconSSD img{
 * {
     box-sizing: border-box;
 }
-body {
-    font-family: Verdana, sans-serif;
-    margin: 0;
-}
 .lysbildefremvisning-container {
     position: relative;
     max-width: 1000px;
     margin: auto;
-    overflow: hidden;
 }
 .mineBilder {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    display: none;
 }
-.mineBilder.vises {
-    opacity: 1;
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
-img {
-    vertical-align: middle;
-    width: 100%;
+@-webkit-keyframes fade {
+    from { opacity: .4 } 
+    to { opacity: 1 }
+}
+@keyframes fade {
+    from { opacity: .4 } 
+    to { opacity: 1 }
 }
 .fremdrifts-bar {
     width: 0;
     height: 5px;
-    background-color: #4caf50;
+    background-color: #A155B9;
     position: absolute;
     bottom: 0;
     left: 0;
-    transition: width 3s ease-in-out;
+    transition: width 0.1s ease-in-out;
 }
