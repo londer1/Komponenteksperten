@@ -513,7 +513,7 @@ body:not(.dark-mode) .iconSSD img{
 .high-contrast .iconSSD img{
     filter: invert(100%);
 }
-/*slideshow greia*/
+/* slideshow greia */
 * {
     box-sizing: border-box;
 }
@@ -521,22 +521,18 @@ body:not(.dark-mode) .iconSSD img{
     position: relative;
     max-width: 1000px;
     margin: auto;
+    padding-top: 50px;
+    padding-bottom: 0px;
 }
-.mineBilder {
-    display: none;
+.mineBilder img{
+    width: 100%;
+    border-radius: 5px;
 }
 .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-@-webkit-keyframes fade {
-    from { opacity: .4 } 
-    to { opacity: 1 }
+    animation: fade 1.5s;
 }
 @keyframes fade {
-    from { opacity: .4 } 
+    from { opacity: 0.4 } 
     to { opacity: 1 }
 }
 .fremdrifts-bar {
@@ -546,6 +542,7 @@ body:not(.dark-mode) .iconSSD img{
     bottom: 0;
     left: 0;
     animation: fremdrift 3s linear infinite;
+    border-radius: 1px;
 }
 @keyframes fremdrift {
     0% {
