@@ -62,18 +62,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreValueElement = document.getElementById('scoreValue');
 
     const questions = [
-        { question: 'Hva er hovedkort også kjent som?', options: ['Motherboard eller MOBO', 'CPU', 'GPU', 'RAM'], answer: 3 },
-        { question: 'Hva er en annen betegnelse for prosessor?', options: ['CPU', 'GPU', 'RAM', 'SSD'], answer: 1 },
-        { question: 'Hva er RAM en forkortelse for?', options: ['Random Access Memory', 'Read Access Memory', 'Rapid Access Memory', 'Random Algorithm Memory'], answer: 0 },
-        { question: 'Hva er den primære forskjellen mellom en harddisk og en SSD?', options: ['En harddisk har mekaniske deler, mens en SSD er solid state', 'De er begge like raske', 'SSD er billigere enn harddisk', 'Harddisken har bedre holdbarhet enn SSD'], answer: 0 },
-        { question: 'Hva er hovedoppgaven til RAM?', options: ['Midlertidig lagring av data for rask tilgang', 'Permanent lagring av data', 'Grafikkproduksjon', 'Prosessering av komplekse beregninger'], answer: 0 },
-        { question: 'Hvorfor har grafikkortprisene økt nylig?', options: ['På grunn av økt etterspørsel fra kryptovalutamining og AI-teknologier', 'På grunn av fallende etterspørsel', 'På grunn av overproduksjon av grafikkort', 'På grunn av reduksjon i produksjonskostnader'], answer: 0 },
-        { question: 'Hva er spesielt med NVMe M.2 SSD?', options: ['Den sitter direkte på hovedkortet uten kabler, noe som reduserer forsinkelse', 'Den er større enn en vanlig SSD', 'Den har mekaniske deler', 'Den er mindre holdbar enn en vanlig SSD'], answer: 0 },
-        { question: 'Hvordan kan datamaskinkomponentenes samspill sammenlignes med et musikkorkester?', options: ['Hver del har sin spesifikke rolle, men de arbeider sammen for å skape noe større', 'Hver del jobber uavhengig uten å samarbeide', 'Det er ingen sammenligning', 'Komponentene er ikke viktige for datamaskinens funksjon'], answer: 0 },
-        { question: 'Hvordan kan å åpne et spill sammenlignes med å gi startsignalet til et racerteam?', options: ['Det setter alle datamaskinkomponentene i aksjon for å gi den beste spillopplevelsen', 'Det har ingen effekt på datamaskinens ytelse', 'Det får datamaskinen til å krasje', 'Det reduserer datamaskinens levetid'], answer: 0 },
-        { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Det holder temperaturen nede for å forhindre overoppheting', 'Det øker temperaturen for bedre ytelse', 'Det har ingen funksjon', 'Det forårsaker overoppheting'], answer: 0 },
-        { question: 'Hvordan kan bussene i en datamaskin sammenlignes med veier?', options: ['De fungerer som motorveier som tillater fri flyt av informasjon mellom komponentene', 'De begrenser informasjonsflyten', 'De har ingen sammenligning med veier', 'De er bare for dekorasjon'], answer: 0 }
-    ];       
+        { question: 'Hva er hovedkort også kjent som?', options: ['CPU', 'GPU', 'RAM', 'MOBO'], answer: 3 },
+        { question: 'Hva er en annen betegnelse for prosessor?', options: ['GPU', 'CPU', 'RAM', 'SSD'], answer: 1 },
+        { question: 'Hva er RAM en forkortelse for?', options: ['Read Access Memory', 'Random Access Memory', 'Rapid Access Memory', 'Random Algorithm Memory'], answer: 1 },
+        { question: 'Hva er den primære forskjellen mellom en harddisk og en SSD?', options: ['De er like raske', 'HD har mekaniske deler, SSD er solid state', 'SSD er billigere', 'HD har bedre holdbarhet'], answer: 1 },
+        { question: 'Hva er hovedoppgaven til RAM?', options: ['Permanent lagring', 'Grafikkproduksjon', 'Midlertidig lagring', 'Komplekse beregninger'], answer: 2 },
+        { question: 'Hvorfor har grafikkortprisene økt nylig?', options: ['Fallende etterspørsel', 'Økt etterspørsel fra mining og AI', 'Overproduksjon', 'Reduksjon i produksjonskostnader'], answer: 1 },
+        { question: 'Hva er spesielt med NVMe M.2 SSD?', options: ['Mekaniske deler', 'Større enn en vanlig SSD', 'Mindre holdbar', 'Direkte på hovedkortet, ingen kabler'], answer: 3 },
+        { question: 'Hvordan kan datamaskinkomponentenes samspill sammenlignes med et musikkorkester?', options: ['Jobber uavhengig', 'Ingen sammenligning', 'Har spesifikke roller og jobber sammen', 'Ikke viktige'], answer: 2 },
+        { question: 'Hvordan kan å åpne et spill sammenlignes med å gi startsignalet til et racerteam?', options: ['Ingen effekt', 'Setter komponentene i aksjon', 'Krasjer', 'Reduserer levetid'], answer: 1 },
+        { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Øker temperaturen', 'Ingen funksjon', 'Forårsaker overoppheting', 'Forhindrer overoppheting'], answer: 3 },
+        { question: 'Hvordan kan bussene i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 }
+    ];
 
     let currentQuestionIndex = 0;
     let score = 0;
@@ -185,3 +185,32 @@ function myFunction() {
     document.getElementById("minBar").style.width = scrolled + "%";
 }
 });
+
+//dritfancy slideshow ting
+let slideIndex = 0;
+const bilder = document.getElementsByClassName("mineBilder");
+const fremdriftsBar = document.getElementById('fremdriftsBar');
+
+function visBilder() {
+    for (let i = 0; i < bilder.length; i++) {
+        bilder[i].classList.remove('vises');
+    }
+    
+    slideIndex++;
+    if (slideIndex > bilder.length) { slideIndex = 1 }
+    
+    const currentSlide = bilder[slideIndex - 1];
+    currentSlide.classList.add('vises');
+    
+    oppdaterFremdriftsBar();
+    setTimeout(visBilder, 3000);
+}
+
+function oppdaterFremdriftsBar() {
+    fremdriftsBar.style.width = '0%';
+    setTimeout(() => {
+        fremdriftsBar.style.width = '100%';
+    }, 100);
+}
+
+visBilder();

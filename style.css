@@ -66,12 +66,11 @@ section{
     padding-block-start: 40px;
     display: none;
     border: 3px solid #165BAA;
-    margin-top: 20px;
+    margin-top: 80px;
     max-width: 900px;
     margin-inline: auto;
     box-shadow: 0 0 0px 0px #552c61;
     border-radius: 15px;
-    margin-top: 80px;
 }
 section:target{
     display: block;
@@ -90,11 +89,11 @@ nav{
     margin-bottom: 10px;
 }
 nav a{
+    max-height: max-content;
     color: #ffffff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 5px;
     padding: 6px 15px;
-    padding-bottom: 0px;
     border-radius: 7px;
     transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -103,13 +102,13 @@ nav a:hover{
     background-color: rgba(255, 255, 255, 0.1);
 }
 #themeLink{
-    max-height: 31px;
+    height: 37px;
     color: #ffffff;
     background-color: transparent;
     text-decoration: none;
     margin: 0 10px;
-    padding: 0px 30px;
-    border: 1px solid transparent;
+    padding: 0px 15px;
+    border: 0px solid transparent;
     border-radius: 7px;
     cursor: pointer;
 }
@@ -139,17 +138,14 @@ main{
     font-size: 1.2em;
     margin-bottom: 20px;
 }
-#options{
+#options {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    height: 200px;
+    flex-direction: column;
+    gap: 10px;
 }
-#options .quiz-option{
-    width: 174px;
-    height: 250px;
-    margin: 0;
+#options .quiz-option {
+    width: 100%;
+    height: auto;
     padding: 20px;
     font-size: 1em;
     border: 3px solid #165BAA;
@@ -158,10 +154,9 @@ main{
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: normal;
-    text-size-adjust: auto;
+    text-overflow: clip;
+    overflow: visible;
 }
 #nextBtn{
     width: 300px;
@@ -245,9 +240,15 @@ main{
     display: block;
 }
 .hidden{ display: none; }
-.quiz-container{ margin: 20px; }
-.quiz-options .quiz-option{ display: block; margin: 5px 0; padding: 10px; }
-/* Mørkt tema */
+.quiz-container{
+    margin: 20px; 
+    margin-top: 2000px;
+}
+.quiz-options .quiz-option{
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+}
 .dark-mode{
     background-color: #121212;
     color: #fff;
@@ -421,70 +422,70 @@ main{
     vertical-align: middle;
     margin-right: 8px;
 }
-/* ikonigrafi, fjerne skygge neon ting, https://thenounproject.com/search/icons/?q=computer+components */
 nav#minNav img{
     width: 38px;
     height: 38px;
-    padding-right:10px;
+
 }
 nav#minNav img #ThemeLink{
     width: 8px;
     height: 8px;
-    padding-right:0px;
+
 }
 nav#minNav .icon img{
     vertical-align: middle;
-    padding-bottom: 0px;
+
 }
 span.iconCPU{
-    padding-right: 2px;
+    padding-right: 8px;
 }
 span.iconCPU img{
-    width: 28px;
-    height: 28px;
-    padding-top: 11px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
 }
 span.iconRAM{
-    padding-right: 2px;
+    padding-right: 8px;
 }
 span.iconRAM img{
-    width: 28px;
-    height: 28px;
-    padding-top: 11px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
 }
 span.iconMOBO{
-    padding-right: 5px;
+    padding-right: 8px;
 }
 span.iconMOBO img{
-    width: 28px;
-    height: 28px;
-    padding-top: 11px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
 }
 span.iconGPU{
-    padding-right: 10px;
+    padding-right: 8px;
 }
 span.iconGPU img{
-    width: 28px;
-    height: 28px;
-    padding-top: 11px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
 }
 span.iconHDD{
-    padding-right: 5px;
+    padding-right: 8px;
 }
 span.iconHDD img{
-    width: 28px;
-    height: 28px;
-    padding-top: 11px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
 }
 span.iconSSD{
     padding-right: 8px;
 }
 span.iconSSD img{
-    width: 28px;
-    height: 28px;
-    padding-top: 9px;
+        width: 25px;
+        height: 25px;
+        margin-top: 10px;
+        padding-bottom: 5px;
 }
-/* lys */
+/*lys */
 body:not(.dark-mode) .iconCPU img,
 body:not(.dark-mode) .iconRAM img,
 body:not(.dark-mode) .iconMOBO img,
@@ -493,7 +494,7 @@ body:not(.dark-mode) .iconHDD img,
 body:not(.dark-mode) .iconSSD img{
     filter: invert(100%);
 }
-/* mørk */
+/*mørk */
 .dark-mode .iconCPU img,
 .dark-mode .iconRAM img,
 .dark-mode .iconMOBO img,
@@ -502,7 +503,7 @@ body:not(.dark-mode) .iconSSD img{
 .dark-mode .iconSSD img{
     filter: invert(0%);
 }
-/* høykontrast*/
+/*høykontrast*/
 .high-contrast .icon img,
 .high-contrast .iconCPU img,
 .high-contrast .iconRAM img,
@@ -511,4 +512,41 @@ body:not(.dark-mode) .iconSSD img{
 .high-contrast .iconHDD img,
 .high-contrast .iconSSD img{
     filter: invert(100%);
+}
+/*slideshow greia*/
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+.lysbildefremvisning-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.mineBilder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.mineBilder.vises {
+    opacity: 1;
+}
+img {
+    vertical-align: middle;
+    width: 100%;
+}
+.fremdrifts-bar {
+    width: 0;
+    height: 5px;
+    background-color: #4caf50;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 3s ease-in-out;
 }
