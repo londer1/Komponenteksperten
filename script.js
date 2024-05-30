@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (initialSection) {
         initialSection.style.display = 'block';
     }
-    
+
     // bytte seksjon ved klikk i menyen
     const menuLinks = document.querySelectorAll('nav a');
     menuLinks.forEach(link => {
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         themePopup.style.display = 'none';
     }
 
-    // last inn tema fra localStorage
+    // laster inn tema med localstorageeee
     const savedTheme = localStorage.getItem('theme') || '';
     document.body.className = savedTheme;
 
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizSection = document.getElementById('quiz');
     const questionElement = document.getElementById('question');
     const optionsElement = document.getElementById('options');
-    const nextBtn = document.getElementById('nextBtn');
     const scoreElement = document.getElementById('score');
     const scoreValueElement = document.getElementById('scoreValue');
 
@@ -107,18 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        nextBtn.style.display = 'block';
+        setTimeout(() => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                showScore();
+            }
+        }, 3000);
     }
-
-    nextBtn.addEventListener('click', () => {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            showQuestion(currentQuestionIndex);
-        } else {
-            showScore();
-        }
-        nextBtn.style.display = 'none';
-    });
 
     function showScore() {
         quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
@@ -126,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scoreValueElement.textContent = score;
     }
 
-    // quiz
+    // quizzz
     showQuestion(currentQuestionIndex);
 
     function toggleFullscreenImage(imageId) {
@@ -177,6 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fremdriftsBar.style.width = '0';
         void fremdriftsBar.offsetWidth;
         fremdriftsBar.style.width = '100%';
-        setTimeout(visBilder, 3000);
+        setTimeout(visBilder, 1000);
     }
 });
