@@ -121,7 +121,8 @@ nav a:hover{
     border: 4px solid #000000;
     border-radius: 0px;
     background-color: transparent;
-    max-height: 37px;
+    max-height: 43px;
+    padding-bottom: 34px;
 }
 .high-contrast #themeLink:hover{
     background-color: #20ecfc;

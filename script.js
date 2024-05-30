@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (initialSection) {
         initialSection.style.display = 'block';
     }
-
+    
     // bytte seksjon ved klikk i menyen
     const menuLinks = document.querySelectorAll('nav a');
     menuLinks.forEach(link => {
