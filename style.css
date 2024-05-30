@@ -528,13 +528,13 @@ body:not(.dark-mode) .iconSSD img{
 .mineBilder img{
     width: 100%;
     border-radius: 5px;
-    transition: opacity 1.5s ease; /* Legg til overgangseffekt */
 }
 .fade {
-    opacity: 0;
+    animation: fade 1.5s;
 }
-.fade.active {
-    opacity: 1;
+@keyframes fade {
+    from { opacity: 0.4 } 
+    to { opacity: 1 }
 }
 .fremdrifts-bar {
     height: 5px;
