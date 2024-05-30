@@ -5,7 +5,7 @@
     font: inherit; 
 }
 body{
-    background-color: #cccccc;
+    background-color: #F0F0F0;
     font-family: 'Poppins', sans-serif;
 }
 .dark-mode body{
@@ -343,7 +343,7 @@ main{
 }
 .high-contrast section{
     border-radius: 0px;
-    border-color: #20ecfc;
+    border-color: #f0f004;
     background-color:#050505;
     border-width: 5px;
     box-shadow: 0 0 0px 0px #0b1354;
