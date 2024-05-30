@@ -199,8 +199,8 @@ function visBilder() {
     slideIndex++;
     if (slideIndex > bilder.length) { slideIndex = 1 }
     bilder[slideIndex - 1].style.display = "block";
-    fremdriftsBar.style.width = '0'; // Tilbakestill fremdriftsindikator
-    void fremdriftsBar.offsetWidth; // Trigger reflow for å aktivere animasjonen
-    fremdriftsBar.style.width = '100%'; // Start fremdriftsindikator-animasjon
-    setTimeout(visBilder, 3000); // Bytt bilde hvert 3. sekund
+    fremdriftsBar.style.width = '0';
+    void fremdriftsBar.offsetWidth;
+    fremdriftsBar.style.width = '100%';
+    setTimeout(visBilder, 3000);
 }

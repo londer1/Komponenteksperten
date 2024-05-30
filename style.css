@@ -242,7 +242,7 @@ main{
 .hidden{ display: none; }
 .quiz-container{
     margin: 20px; 
-    margin-top: 2000px;
+    margin-top: 20px;
 }
 .quiz-options .quiz-option{
     display: block;
