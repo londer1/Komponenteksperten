@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Skjule seksjoner
+    // skjule seksjoner
     const sections = document.querySelectorAll('main section');
     sections.forEach(section => section.style.display = 'none');
     const initialSection = document.querySelector('section#home');
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initialSection.style.display = 'block';
     }
 
-    // Bytte seksjon ved klikk i menyen
+    // bytte seksjon ved klikk i menyen
     const menuLinks = document.querySelectorAll('nav a');
     menuLinks.forEach(link => {
         link.addEventListener('click', function(event) {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Tema popup og knapper
+    // tema popup og knapper
     const themePopup = document.getElementById('themePopup');
     const themeLink = document.getElementById('themeLink');
     const darkThemeBtn = document.getElementById('darkThemeBtn');
@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
         themePopup.style.display = 'none';
     }
 
-    // Last inn tema fra localStorage
+    // last inn tema fra localStorage
     const savedTheme = localStorage.getItem('theme') || '';
     document.body.className = savedTheme;
 
-    // Quiz kode
+    // quiz kode
     const quizSection = document.getElementById('quiz');
     const questionElement = document.getElementById('question');
     const optionsElement = document.getElementById('options');
@@ -120,6 +120,13 @@ document.addEventListener('DOMContentLoaded', function() {
         nextBtn.style.display = 'none';
     });
 
+    function showScore() {
+        quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
+        scoreElement.classList.remove('hidden');
+        scoreValueElement.textContent = score;
+    }
+
+    // quiz
     showQuestion(currentQuestionIndex);
 
     function toggleFullscreenImage(imageId) {
@@ -144,63 +151,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-//quiz next knapp av og på
-function selectOption(selectedIndex, correctIndex, button) {
-    if (selectedIndex === correctIndex) {
-        button.classList.add('correct');
-        score++;
-    } else {
-        button.classList.add('incorrect');
+    // progressjons bar
+    window.onscroll = function() { myFunction() };
+
+    function myFunction() {
+        const winScroll = window.scrollY || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("minBar").style.width = scrolled + "%";
     }
 
-    Array.from(optionsElement.children).forEach(btn => {
-        btn.disabled = true;
-        if (questions[currentQuestionIndex].options.indexOf(btn.textContent) === correctIndex) {
-            btn.classList.add('correct');
+    // dritkul slideshow
+    let slideIndex = 0;
+    visBilder();
+
+    function visBilder() {
+        let bilder = document.getElementsByClassName("mineBilder");
+        let fremdriftsBar = document.querySelector('.fremdrifts-bar');
+        for (let i = 0; i < bilder.length; i++) {
+            bilder[i].style.display = "none";
         }
-    });
-
-    setTimeout(() => {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            showQuestion(currentQuestionIndex);
-            nextBtn.style.display = 'none';
-        } else {
-            quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
-            optionsElement.innerHTML = '';
-            nextBtn.style.display = 'none';
-            scoreElement.classList.remove('hidden');
-            scoreValueElement.textContent = score;
-        }
-    }, 1500);
-}
-
-//progressjonsbar
-window.onscroll = function() { myFunction() };
-
-function myFunction() {
-    const winScroll = window.scrollY || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById("minBar").style.width = scrolled + "%";
-}
+        slideIndex++;
+        if (slideIndex > bilder.length) { slideIndex = 1 }
+        bilder[slideIndex - 1].style.display = "block";
+        fremdriftsBar.style.width = '0';
+        void fremdriftsBar.offsetWidth;
+        fremdriftsBar.style.width = '100%';
+        setTimeout(visBilder, 3000);
+    }
 });
-
-// dritfancy slideshow ting
-let slideIndex = 0;
-visBilder();
-
-function visBilder() {
-    let bilder = document.getElementsByClassName("mineBilder");
-    let fremdriftsBar = document.querySelector('.fremdrifts-bar');
-    for (let i = 0; i < bilder.length; i++) {
-        bilder[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > bilder.length) { slideIndex = 1 }
-    bilder[slideIndex - 1].style.display = "block";
-    fremdriftsBar.style.width = '0';
-    void fremdriftsBar.offsetWidth;
-    fremdriftsBar.style.width = '100%';
-    setTimeout(visBilder, 3000);
-}
