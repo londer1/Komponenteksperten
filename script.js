@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const questionElement = document.getElementById('question');
     const optionsElement = document.getElementById('options');
     const scoreElement = document.getElementById('score');
-    const scoreValueElement = document.getElementById('scoreValue');
+    const scoreValueElement = document.getElementById('scoreValue');    
 
     const questions = [
         { question: 'Hva er hovedkort også kjent som?', options: ['CPU', 'GPU', 'RAM', 'MOBO'], answer: 3 },
@@ -76,12 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentQuestionIndex = 0;
     let score = 0;
-
+    let streak = 0;
+    
     function showQuestion(questionIndex) {
         const question = questions[questionIndex];
         questionElement.textContent = question.question;
         optionsElement.innerHTML = '';
-
+    
         question.options.forEach((option, index) => {
             const button = document.createElement('button');
             button.textContent = option;
@@ -90,22 +91,28 @@ document.addEventListener('DOMContentLoaded', function() {
             optionsElement.appendChild(button);
         });
     }
-
+    
     function selectOption(selectedIndex, correctIndex, button) {
         if (selectedIndex === correctIndex) {
             button.classList.add('correct');
             score++;
+            streak++;
+            if (streak >= 3) {
+                scoreElement.classList.add('streak');
+            }
         } else {
             button.classList.add('incorrect');
+            streak = 0;
+            scoreElement.classList.remove('streak');
         }
-
+    
         Array.from(optionsElement.children).forEach(btn => {
             btn.disabled = true;
             if (questions[currentQuestionIndex].options.indexOf(btn.textContent) === correctIndex) {
                 btn.classList.add('correct');
             }
         });
-
+    
         setTimeout(() => {
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
@@ -114,13 +121,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 showScore();
             }
         }, 3000);
+    
+        // Update score value
+        scoreValueElement.textContent = score;
     }
-
+    
     function showScore() {
         quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
         scoreElement.classList.remove('hidden');
         scoreValueElement.textContent = score;
     }
+    
+    showQuestion(currentQuestionIndex);
+    
 
     // quizzz
     showQuestion(currentQuestionIndex);

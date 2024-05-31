@@ -193,14 +193,22 @@ main{
 }
 #score{
     position: fixed;
-    top: 50px; 
-    right: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    top: 100px; 
+    right: 400px;
+    background-color: #ffffff;
     padding: 5px 10px;
     border-radius: 7px;
     z-index: 999; 
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
     color: #000000;
+}
+.dark-mode #score {
+    background-color: #252525;
+    color: #000000;
+}
+.high-contrast #score {
+
+    border: #f0f004;
 }
 .correct{
     background-color: green !important;
@@ -556,3 +564,7 @@ body:not(.dark-mode) .iconSSD img{
         width: 100%;
     }
 }
+/* lydeffekter til quizen 
+effekt på poenboksen ved streaks
+rett styling av poengboks
+fjern progresjonsbar til hjemskjerm */
