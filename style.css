@@ -240,7 +240,9 @@ main{
 .show-theme-dialog .theme-popup{
     display: block;
 }
-.hidden{ display: none; }
+.hidden {
+    display: none;
+}
 .quiz-container{
     margin: 20px; 
     margin-top: 20px;
@@ -531,7 +533,7 @@ body:not(.dark-mode) .iconSSD img{
     border-radius: 5px;
 }
 .fade {
-    animation: fade 1.5s;
+    animation: fade 3s;
 }
 @keyframes fade {
     from { opacity: 0.4 } 

@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleFullscreenImage('ramImageContainer');
         }
     });
+    
 
     // progressjons bar
     window.onscroll = function() { myFunction() };
