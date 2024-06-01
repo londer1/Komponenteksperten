@@ -540,30 +540,7 @@ body:not(.dark-mode) .iconSSD img{
     width: 100%;
     border-radius: 5px;
 }
-.fade {
-    animation: fade 3s;
-}
-@keyframes fade {
-    from { opacity: 0.4 } 
-    to { opacity: 1 }
-}
-.fremdrifts-bar {
-    height: 5px;
-    background-color: #A155B9;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    animation: fremdrift 3s linear infinite;
-    border-radius: 1px;
-}
-@keyframes fremdrift {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
+
 /* lydeffekter til quizen 
 effekt på poenboksen ved streaks
 rett styling av poengboks

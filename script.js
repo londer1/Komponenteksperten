@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreElement = document.getElementById('score');
     const scoreValueElement = document.getElementById('scoreValue');    
 
+
+    const riktigLyd = document.getElementById('riktigLyd');
+    const feilLyd = document.getElementById('feilLyd');
+
     const questions = [
         { question: 'Hva er hovedkort også kjent som?', options: ['CPU', 'GPU', 'RAM', 'MOBO'], answer: 3 },
         { question: 'Hva er en annen betegnelse for prosessor?', options: ['GPU', 'CPU', 'RAM', 'SSD'], answer: 1 },
@@ -97,12 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.add('correct');
             score++;
             streak++;
+            riktigLyd.play();  // Spill av riktig lyd
             if (streak >= 3) {
                 scoreElement.classList.add('streak');
             }
         } else {
             button.classList.add('incorrect');
             streak = 0;
+            feilLyd.play();  // Spill av feil lyd
             scoreElement.classList.remove('streak');
         }
     
@@ -122,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 3000);
     
-        // Update score value
+        // poeng tall
         scoreValueElement.textContent = score;
     }
     
@@ -134,10 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     showQuestion(currentQuestionIndex);
     
-
-    // quizzz
-    showQuestion(currentQuestionIndex);
-
     function toggleFullscreenImage(imageId) {
         const image = document.getElementById(imageId);
         if (image.classList.contains('show')) {
@@ -146,21 +148,20 @@ document.addEventListener('DOMContentLoaded', function() {
             image.classList.add('show');
         }
     }
-
+    
     const ramImages = document.querySelectorAll('.fullscreen-image img');
     ramImages.forEach(img => {
         img.addEventListener('click', function() {
             toggleFullscreenImage(this.parentElement.id);
         });
     });
-
+    
     document.addEventListener('keydown', function(event) {
         if(event.key === 'Escape') {
             toggleFullscreenImage('ramImageContainer');
         }
     });
     
-
     // progressjons bar
     window.onscroll = function() { myFunction() };
 
@@ -187,6 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fremdriftsBar.style.width = '0';
         void fremdriftsBar.offsetWidth;
         fremdriftsBar.style.width = '100%';
-        setTimeout(visBilder, 1000);
+        setTimeout(visBilder, 3000);
     }
 });
