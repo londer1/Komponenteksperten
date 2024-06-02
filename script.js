@@ -184,11 +184,10 @@ streakElement.style.display = 'none';
             scoreElement.style.transform = 'none';
             scoreElement.style.boxShadow = 'none';
     
-            // Sett poengtekstens farge basert på temaet
             if (document.body.classList.contains('dark-mode')) {
-                scoreElement.style.color = '#fff'; // Sett fargen til hvit i dark-mode
+                scoreElement.style.color = '#fff';
             } else {
-                scoreElement.style.color = '#000'; // Sett fargen til svart i standard og high-contrast temaer
+                scoreElement.style.color = '#000';
             }
         }
     
@@ -208,7 +207,6 @@ streakElement.style.display = 'none';
             }
         }, 3000);
     
-        // Oppdater poengtallet
         scoreValueElement.textContent = score;
     }
 
@@ -221,7 +219,7 @@ streakElement.style.display = 'none';
         if (score === totalQuestions) {
             message = "Gratulerer! Du klarte alle spørsmålene!";
             imageSrc = "gratulerer.jpg";
-            startConfetti();
+            startConfetti(10000, 1000);
         } else {
             const intervalIndex = Math.floor(score / interval);
             switch (intervalIndex) {
@@ -235,12 +233,12 @@ streakElement.style.display = 'none';
                     startConfetti(1000, 10);
                     break;
                 case 2:
-                    message = "Ganske greit, men fortsatt rom for forbedring!";
+                    message = "Helt greit";
                     imageSrc = "greit.jpg";
-                    startConfetti(5000, 100);
+                    startConfetti(2000, 100);
                     break;
                 case 3:
-                    message = "Bra jobba!";
+                    message = "Nesten alt riktig!";
                     imageSrc = "bra_jobba.jpg";
                     startConfetti(8000, 150);
                     break;
