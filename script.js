@@ -230,17 +230,16 @@ streakElement.style.display = 'none';
                 case 1:
                     message = "Du kan bedre...";
                     imageSrc = "kan_bedre.jpg";
-                    startConfetti(1000, 10);
                     break;
                 case 2:
                     message = "Helt greit";
                     imageSrc = "greit.jpg";
-                    startConfetti(2000, 100);
+                    startConfetti(3000, 300);
                     break;
                 case 3:
                     message = "Nesten alt riktig!";
                     imageSrc = "bra_jobba.jpg";
-                    startConfetti(8000, 150);
+                    startConfetti(4000, 400);
                     break;
             }
         }
@@ -252,7 +251,8 @@ streakElement.style.display = 'none';
         `;
         scoreElement.classList.remove('hidden');
         scoreValueElement.textContent = score;
-    }    
+    }
+    
     
     showQuestion(currentQuestionIndex);
     
