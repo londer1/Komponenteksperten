@@ -59,7 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const optionsElement = document.getElementById('options');
     const scoreElement = document.getElementById('score');
     const scoreValueElement = document.getElementById('scoreValue');    
-
+    const streakElement = document.createElement('div');
+streakElement.id = 'streak';
+scoreElement.parentNode.insertBefore(streakElement, scoreElement.nextSibling);
+streakElement.style.display = 'none';
 
     const riktigLyd = document.getElementById('riktigLyd');
     const feilLyd = document.getElementById('feilLyd');
@@ -72,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { question: 'Hva er hovedoppgaven til RAM?', options: ['Permanent lagring', 'Grafikkproduksjon', 'Midlertidig lagring', 'Komplekse beregninger'], answer: 2 },
         { question: 'Hvorfor har grafikkortprisene økt nylig?', options: ['Fallende etterspørsel', 'Økt etterspørsel fra mining og AI', 'Overproduksjon', 'Reduksjon i produksjonskostnader'], answer: 1 },
         { question: 'Hva er spesielt med NVMe M.2 SSD?', options: ['Mekaniske deler', 'Større enn en vanlig SSD', 'Mindre holdbar', 'Direkte på hovedkortet, ingen kabler'], answer: 3 },
-        { question: 'Hvordan kan datamaskinkomponentenes samspill sammenlignes med et musikkorkester?', options: ['Jobber uavhengig', 'Ingen sammenligning', 'Har spesifikke roller og jobber sammen', 'Ikke viktige'], answer: 2 },
+        { question: 'Hvordan kan komponentene sammenlignes litt med et musikkorkester?', options: ['Jobber uavhengig', 'Ingen sammenligning', 'Har spesifikke roller og jobber sammen', 'Ikke viktige'], answer: 2 },
         { question: 'Hvordan kan å åpne et spill sammenlignes med å gi startsignalet til et racerteam?', options: ['Ingen effekt', 'Setter komponentene i aksjon', 'Krasjer', 'Reduserer levetid'], answer: 1 },
         { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Øker temperaturen', 'Ingen funksjon', 'Forårsaker overoppheting', 'Forhindrer overoppheting'], answer: 3 },
         { question: 'Hvordan kan bussene i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 }
@@ -91,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             score++;
             streak++;
     
-            // Legg til streak-effekter
+            // streak effekter kode ting
             if (streak >= 3) {
                 scoreElement.classList.add('streak');
     
@@ -106,23 +109,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
             }
     
-            riktigLyd.play(); // Spill av riktig lyd
+            riktigLyd.play();
         } else {
             button.classList.add('incorrect');
             streak = 0;
-            feilLyd.play(); // Spill av feil lyd
+            feilLyd.play();
             scoreElement.classList.remove('streak');
     
-            // Tilbakestill streak-effekter
+            // streak reset ting
             scoreElement.style.transform = 'none';
             scoreElement.style.boxShadow = 'none';
-            scoreElement.style.color = '#000'; // Tilbakestill fargen til standard
+            scoreElement.style.color = '#000';
         }
-    
-        // Resten av koden for å håndtere valg og oppdatering av score...
     }
-    
-
+    function updateStreak() {
+        if (streak >= 2) {
+            streakElement.textContent = `Streak: ${'🔥 '.repeat(streak - 1).trim()}`;
+            streakElement.style.display = 'block';
+        } else {
+            streakElement.style.display = 'none';
+        }
+    }
     function showQuestion(questionIndex) {
         const question = questions[questionIndex];
         questionElement.textContent = question.question;
@@ -136,21 +143,46 @@ document.addEventListener('DOMContentLoaded', function() {
             optionsElement.appendChild(button);
         });
     }
-    
+
     function selectOption(selectedIndex, correctIndex, button) {
         if (selectedIndex === correctIndex) {
             button.classList.add('correct');
             score++;
             streak++;
-            riktigLyd.play();  // Spill av riktig lyd
+            updateStreak();
+    
+            // streak effekter kode ting
             if (streak >= 3) {
                 scoreElement.classList.add('streak');
+    
+                // Øk intensiteten for risting og flammer
+                shakeIntensity = 5 + streak * 2;  // Juster etter behov
+                flameIntensity = 0.1 + streak * 0.1;  // Juster etter behov
+                colorIntensity = 10 + streak * 2;  // Juster etter behov
+    
+                // Legg til ristingseffekt på scoreboksen
+                scoreElement.style.transform = `translateX(${shakeIntensity}px)`;
+    
+                // Legg til flammeeffekt rundt scoreboksen
+                scoreElement.style.boxShadow = `0 0 10px rgba(255, 0, 0, ${flameIntensity}), 0 0 20px rgba(255, 0, 0, ${flameIntensity})`;
+    
+                // Endre fargen på poengteksten for å gjøre den rødere
+                let redValue = Math.min(255, score * colorIntensity);
+                scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
             }
+    
+            riktigLyd.play();
         } else {
             button.classList.add('incorrect');
             streak = 0;
-            feilLyd.play();  // Spill av feil lyd
+            updateStreak();
+            feilLyd.play();
             scoreElement.classList.remove('streak');
+    
+            // streak reset ting
+            scoreElement.style.transform = 'none';
+            scoreElement.style.boxShadow = 'none';
+            scoreElement.style.color = '#000';
         }
     
         Array.from(optionsElement.children).forEach(btn => {
@@ -172,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // poeng tall
         scoreValueElement.textContent = score;
     }
-    
+        
     function showScore() {
         quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
         scoreElement.classList.remove('hidden');
