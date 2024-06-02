@@ -78,7 +78,8 @@ streakElement.style.display = 'none';
         { question: 'Hvordan kan komponentene sammenlignes litt med et musikkorkester?', options: ['Jobber uavhengig', 'Ingen sammenligning', 'Har spesifikke roller og jobber sammen', 'Ikke viktige'], answer: 2 },
         { question: 'Hva er fungsjonen til BIOS?', options: ['Håndtere og administrere programvareapplikasjoner', 'Sikre at alle komponentene i datamaskinen er klar for bruk før operativsystemet starter', 'Fungere som et operativsystem selv', 'illate brukeren å endre systeminnstillinger for å optimere ytelsen til datamaskinen'], answer: 1 },
         { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Øker temperaturen', 'Ingen funksjon', 'Forårsaker overoppheting', 'Forhindrer overoppheting'], answer: 3 },
-        { question: 'Hvordan kan "bussene" i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 }
+        { question: 'Hvordan kan "bussene" i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 },
+        { question: 'Hva er det beste operativsystemet av disse?', options: ['Windows 10/11', 'Ubuntu', 'MacOS', 'Alle er suger på hver sin måte'], answer: 3 }
     ];
 
     let currentQuestionIndex = 0;
@@ -166,10 +167,10 @@ streakElement.style.display = 'none';
                 // Legg til flammeeffekt rundt scoreboksen
                 scoreElement.style.boxShadow = `0 0 10px rgba(255, 0, 0, ${flameIntensity}), 0 0 20px rgba(255, 0, 0, ${flameIntensity})`;
     
-                // Endre fargen på poengteksten for å gjøre den rødere
+                // Endre fargen på poengteksten basert på temaet
                 let redValue = Math.min(255, score * colorIntensity);
     
-                // Sjekk om dark-mode er aktivert
+                // Sjekk tema
                 if (document.body.classList.contains('dark-mode')) {
                     // Endre teksten til hvit til rød i stedet for mørkerød til rød
                     scoreElement.style.color = `rgb(255, ${255 - redValue}, ${255 - redValue})`;
@@ -180,7 +181,6 @@ streakElement.style.display = 'none';
                     // Sett bakgrunnen til hvit kun hvis streaken er aktiv
                     scoreElement.style.backgroundColor = '#ffffff';
                 }
-    
             }
     
             riktigLyd.play();
@@ -194,7 +194,13 @@ streakElement.style.display = 'none';
             // streak reset ting
             scoreElement.style.transform = 'none';
             scoreElement.style.boxShadow = 'none';
-            scoreElement.style.color = '#000';
+    
+            // Sett poengtekstens farge basert på temaet
+            if (document.body.classList.contains('dark-mode')) {
+                scoreElement.style.color = '#fff'; // Sett fargen til hvit i dark-mode
+            } else {
+                scoreElement.style.color = '#000'; // Sett fargen til svart i standard og high-contrast temaer
+            }
         }
     
         Array.from(optionsElement.children).forEach(btn => {
@@ -213,11 +219,10 @@ streakElement.style.display = 'none';
             }
         }, 3000);
     
-        // poeng tall
+        // Oppdater poengtallet
         scoreValueElement.textContent = score;
     }
-    
-    
+
     function showScore() {
         quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
         scoreElement.classList.remove('hidden');
