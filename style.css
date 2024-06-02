@@ -193,9 +193,9 @@ main{
 }
 #score{
     position: fixed;
-    top: 100px; 
-    right: 400px;
-    background-color: #ffffff;
+    top: 10vh;
+    right: 25vw;
+    background-color: transparent;
     padding: 5px 10px;
     border-radius: 7px;
     z-index: 999; 
@@ -204,10 +204,11 @@ main{
 }
 .dark-mode #score {
     background-color: #252525;
-    color: #000000;
-}
+    color: #ffffff;
+    border: #f0f004;
+}   
 .high-contrast #score {
-
+    color: #f0f004;
     border: #f0f004;
 }
 .correct{
@@ -349,7 +350,7 @@ main{
     border-color: #f0f004;
 }
 .high-contrast #score{
-    color: #ffffff;
+    color: #000000;
 }
 .high-contrast section{
     border-radius: 0px;
@@ -541,7 +542,19 @@ body:not(.dark-mode) .iconSSD img{
     border-radius: 5px;
 }
 
+#score.streak {
+    animation: shake 0.5s infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(5px); } /* Juster bevegelsen som du ønsker */
+}
+
+
 /* lydeffekter til quizen 
 effekt på poenboksen ved streaks
 rett styling av poengboks
-fjern progresjonsbar til hjemskjerm */
+fjern progresjonsbar til hjemskjerm
+logo? 
+spill på nytt knapp*/

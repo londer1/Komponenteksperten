@@ -81,7 +81,48 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentQuestionIndex = 0;
     let score = 0;
     let streak = 0;
+    let shakeIntensity = 5;
+    let flameIntensity = 0.1;
+    let colorIntensity = 10;
     
+    function selectOption(selectedIndex, correctIndex, button) {
+        if (selectedIndex === correctIndex) {
+            button.classList.add('correct');
+            score++;
+            streak++;
+    
+            // Legg til streak-effekter
+            if (streak >= 3) {
+                scoreElement.classList.add('streak');
+    
+                // Legg til ristingseffekt på scoreboksen
+                scoreElement.style.transform = `translateX(${shakeIntensity}px)`;
+    
+                // Legg til flammeeffekt rundt scoreboksen
+                scoreElement.style.boxShadow = `0 0 10px rgba(255, 0, 0, ${flameIntensity}), 0 0 20px rgba(255, 0, 0, ${flameIntensity})`;
+    
+                // Endre fargen på poengteksten for å gjøre den rødere
+                let redValue = Math.min(255, score * colorIntensity);
+                scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
+            }
+    
+            riktigLyd.play(); // Spill av riktig lyd
+        } else {
+            button.classList.add('incorrect');
+            streak = 0;
+            feilLyd.play(); // Spill av feil lyd
+            scoreElement.classList.remove('streak');
+    
+            // Tilbakestill streak-effekter
+            scoreElement.style.transform = 'none';
+            scoreElement.style.boxShadow = 'none';
+            scoreElement.style.color = '#000'; // Tilbakestill fargen til standard
+        }
+    
+        // Resten av koden for å håndtere valg og oppdatering av score...
+    }
+    
+
     function showQuestion(questionIndex) {
         const question = questions[questionIndex];
         questionElement.textContent = question.question;
@@ -161,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleFullscreenImage('ramImageContainer');
         }
     });
+    
     
     // progressjons bar
     window.onscroll = function() { myFunction() };
