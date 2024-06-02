@@ -99,13 +99,10 @@ streakElement.style.display = 'none';
             if (streak >= 2) {
                 scoreElement.classList.add('streak');
     
-                // Legg til ristingseffekt på scoreboksen
                 scoreElement.style.transform = `translateX(${shakeIntensity}px)`;
     
-                // Legg til flammeeffekt rundt scoreboksen
                 scoreElement.style.boxShadow = `0 0 10px rgba(255, 0, 0, ${flameIntensity}), 0 0 20px rgba(255, 0, 0, ${flameIntensity})`;
     
-                // Endre fargen på poengteksten for å gjøre den rødere
                 let redValue = Math.min(255, score * colorIntensity);
                 scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
             }
@@ -155,30 +152,22 @@ streakElement.style.display = 'none';
             // streak effekter kode ting
             if (streak >= 3) {
                 scoreElement.classList.add('streak');
+
+                shakeIntensity = 5 + streak * 2;
+                flameIntensity = 0.1 + streak * 0.1;
+                colorIntensity = 10 + streak * 2;
     
-                // Øk intensiteten for risting og flammer
-                shakeIntensity = 5 + streak * 2;  // Juster etter behov
-                flameIntensity = 0.1 + streak * 0.1;  // Juster etter behov
-                colorIntensity = 10 + streak * 2;  // Juster etter behov
-    
-                // Legg til ristingseffekt på scoreboksen
                 scoreElement.style.transform = `translateX(${shakeIntensity}px)`;
     
-                // Legg til flammeeffekt rundt scoreboksen
                 scoreElement.style.boxShadow = `0 0 10px rgba(255, 0, 0, ${flameIntensity}), 0 0 20px rgba(255, 0, 0, ${flameIntensity})`;
     
-                // Endre fargen på poengteksten basert på temaet
                 let redValue = Math.min(255, score * colorIntensity);
     
-                // Sjekk tema
                 if (document.body.classList.contains('dark-mode')) {
-                    // Endre teksten til hvit til rød i stedet for mørkerød til rød
                     scoreElement.style.color = `rgb(255, ${255 - redValue}, ${255 - redValue})`;
-                    // Sett bakgrunnen til gjennomsiktig
                     scoreElement.style.backgroundColor = 'transparent';
                 } else {
                     scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
-                    // Sett bakgrunnen til hvit kun hvis streaken er aktiv
                     scoreElement.style.backgroundColor = '#ffffff';
                 }
             }
@@ -224,10 +213,48 @@ streakElement.style.display = 'none';
     }
 
     function showScore() {
-        quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
+        const totalQuestions = questions.length;
+        const interval = Math.floor(totalQuestions / 4);
+        let message = '';
+        let imageSrc = '';
+    
+        if (score === totalQuestions) {
+            message = "Gratulerer! Du klarte alle spørsmålene!";
+            imageSrc = "gratulerer.jpg";
+            startConfetti();
+        } else {
+            const intervalIndex = Math.floor(score / interval);
+            switch (intervalIndex) {
+                case 0:
+                    message = "Du skuffer meg faktisk sykt...";
+                    imageSrc = "/bilder/skuffet.png";
+                    break;
+                case 1:
+                    message = "Du kan bedre...";
+                    imageSrc = "kan_bedre.jpg";
+                    startConfetti(1000, 10);
+                    break;
+                case 2:
+                    message = "Ganske greit, men fortsatt rom for forbedring!";
+                    imageSrc = "greit.jpg";
+                    startConfetti(5000, 100);
+                    break;
+                case 3:
+                    message = "Bra jobba!";
+                    imageSrc = "bra_jobba.jpg";
+                    startConfetti(8000, 150);
+                    break;
+            }
+        }
+    
+        quizSection.innerHTML = `
+            <h2>Du fikk ${score} av ${totalQuestions} riktig!</h2>
+            <p>${message}</p>
+            <img src="${imageSrc}" alt="${message}">
+        `;
         scoreElement.classList.remove('hidden');
         scoreValueElement.textContent = score;
-    }
+    }    
     
     showQuestion(currentQuestionIndex);
     
@@ -282,4 +309,32 @@ streakElement.style.display = 'none';
         fremdriftsBar.style.width = '100%';
         setTimeout(visBilder, 3000);
     }
+
+// Quiz gjennomført, start confetti-effekt
+function startConfetti() {
+    const duration = 15 * 1000;
+    const animationEnd = Date.now() + duration;
+
+    function frame() {
+    confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+    });
+    confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+    });
+
+    if (Date.now() < animationEnd) {
+        requestAnimationFrame(frame);
+        }
+    }
+
+    frame();
+}
+
 });
