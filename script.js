@@ -253,7 +253,6 @@ streakElement.style.display = 'none';
         scoreValueElement.textContent = score;
     }
     
-    
     showQuestion(currentQuestionIndex);
     
     function toggleFullscreenImage(imageId) {
@@ -334,5 +333,4 @@ function startConfetti() {
 
     frame();
 }
-
 });
