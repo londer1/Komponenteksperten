@@ -253,6 +253,8 @@ streakElement.style.display = 'none';
         scoreValueElement.textContent = score;
     }
     
+    showQuestion(currentQuestionIndex);
+    
     function toggleFullscreenImage(imageId) {
         const image = document.getElementById(imageId);
         if (image.classList.contains('show')) {
@@ -262,8 +264,8 @@ streakElement.style.display = 'none';
         }
     }
     
-    const componentImages = document.querySelectorAll('.fullscreen-image img');
-    componentImages.forEach(img => {
+    const ramImages = document.querySelectorAll('.fullscreen-image img');
+    ramImages.forEach(img => {
         img.addEventListener('click', function() {
             toggleFullscreenImage(this.parentElement.id);
         });
@@ -271,9 +273,7 @@ streakElement.style.display = 'none';
     
     document.addEventListener('keydown', function(event) {
         if(event.key === 'Escape') {
-            componentImages.forEach(img => {
-                img.parentElement.classList.remove('show');
-            });
+            toggleFullscreenImage('ramImageContainer');
         }
     });
     

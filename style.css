@@ -560,6 +560,22 @@ body:not(.dark-mode) .iconSSD img{
     0% { transform: translateX(5); }
     100% { transform: translateX(5px); }
 }
+#options .quiz-option,
+#retryBtn {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    font-size: 1em;
+    border: 3px solid #165BAA;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    white-space: normal;
+    text-overflow: clip;
+    overflow: visible;
+}
 
 
 /* lydeffekter til quizen 
