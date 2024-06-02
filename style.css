@@ -195,7 +195,7 @@ main{
     position: fixed;
     top: 10vh;
     right: 25vw;
-    background-color: transparent;
+    background-color: #ffffff;
     padding: 5px 10px;
     border-radius: 7px;
     z-index: 999; 
@@ -211,6 +211,16 @@ main{
     color: #f0f004;
     border: #f0f004;
 }
+#streak {
+    position: fixed;
+    top: 13vh;
+    left: 25vw;
+    border-radius: 7px;
+    z-index: 999; 
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
 .correct{
     background-color: green !important;
     color: white !important;
@@ -547,8 +557,8 @@ body:not(.dark-mode) .iconSSD img{
 }
 
 @keyframes shake {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(5px); } /* Juster bevegelsen som du ønsker */
+    0% { transform: translateX(5); }
+    100% { transform: translateX(5px); }
 }
 
 
@@ -557,4 +567,5 @@ effekt på poenboksen ved streaks
 rett styling av poengboks
 fjern progresjonsbar til hjemskjerm
 logo? 
-spill på nytt knapp*/
+spill på nytt knapp
+melding bassert på hvor bra man gjorde quizen*/

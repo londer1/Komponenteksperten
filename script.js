@@ -76,9 +76,9 @@ streakElement.style.display = 'none';
         { question: 'Hvorfor har grafikkortprisene økt nylig?', options: ['Fallende etterspørsel', 'Økt etterspørsel fra mining og AI', 'Overproduksjon', 'Reduksjon i produksjonskostnader'], answer: 1 },
         { question: 'Hva er spesielt med NVMe M.2 SSD?', options: ['Mekaniske deler', 'Større enn en vanlig SSD', 'Mindre holdbar', 'Direkte på hovedkortet, ingen kabler'], answer: 3 },
         { question: 'Hvordan kan komponentene sammenlignes litt med et musikkorkester?', options: ['Jobber uavhengig', 'Ingen sammenligning', 'Har spesifikke roller og jobber sammen', 'Ikke viktige'], answer: 2 },
-        { question: 'Hvordan kan å åpne et spill sammenlignes med å gi startsignalet til et racerteam?', options: ['Ingen effekt', 'Setter komponentene i aksjon', 'Krasjer', 'Reduserer levetid'], answer: 1 },
+        { question: 'Hva er fungsjonen til BIOS?', options: ['Håndtere og administrere programvareapplikasjoner', 'Sikre at alle komponentene i datamaskinen er klar for bruk før operativsystemet starter', 'Fungere som et operativsystem selv', 'illate brukeren å endre systeminnstillinger for å optimere ytelsen til datamaskinen'], answer: 1 },
         { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Øker temperaturen', 'Ingen funksjon', 'Forårsaker overoppheting', 'Forhindrer overoppheting'], answer: 3 },
-        { question: 'Hvordan kan bussene i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 }
+        { question: 'Hvordan kan "bussene" i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 }
     ];
 
     let currentQuestionIndex = 0;
@@ -95,7 +95,7 @@ streakElement.style.display = 'none';
             streak++;
     
             // streak effekter kode ting
-            if (streak >= 3) {
+            if (streak >= 2) {
                 scoreElement.classList.add('streak');
     
                 // Legg til ristingseffekt på scoreboksen
@@ -168,7 +168,19 @@ streakElement.style.display = 'none';
     
                 // Endre fargen på poengteksten for å gjøre den rødere
                 let redValue = Math.min(255, score * colorIntensity);
-                scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
+    
+                // Sjekk om dark-mode er aktivert
+                if (document.body.classList.contains('dark-mode')) {
+                    // Endre teksten til hvit til rød i stedet for mørkerød til rød
+                    scoreElement.style.color = `rgb(255, ${255 - redValue}, ${255 - redValue})`;
+                    // Sett bakgrunnen til gjennomsiktig
+                    scoreElement.style.backgroundColor = 'transparent';
+                } else {
+                    scoreElement.style.color = `rgb(${redValue}, 0, 0)`;
+                    // Sett bakgrunnen til hvit kun hvis streaken er aktiv
+                    scoreElement.style.backgroundColor = '#ffffff';
+                }
+    
             }
     
             riktigLyd.play();
@@ -204,7 +216,8 @@ streakElement.style.display = 'none';
         // poeng tall
         scoreValueElement.textContent = score;
     }
-        
+    
+    
     function showScore() {
         quizSection.innerHTML = `<h2>Du fikk ${score} av ${questions.length} riktig!</h2>`;
         scoreElement.classList.remove('hidden');
