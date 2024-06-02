@@ -79,7 +79,7 @@ streakElement.style.display = 'none';
         { question: 'Hva er fungsjonen til BIOS?', options: ['Håndtere og administrere programvareapplikasjoner', 'Sikre at alle komponentene i datamaskinen er klar for bruk før operativsystemet starter', 'Fungere som et operativsystem selv', 'illate brukeren å endre systeminnstillinger for å optimere ytelsen til datamaskinen'], answer: 1 },
         { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Øker temperaturen', 'Ingen funksjon', 'Forårsaker overoppheting', 'Forhindrer overoppheting'], answer: 3 },
         { question: 'Hvordan kan "bussene" i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 },
-        { question: 'Hva er det beste operativsystemet av disse?', options: ['Windows 10/11', 'Ubuntu', 'MacOS', 'Alle er suger på hver sin måte'], answer: 3 }
+        { question: 'Hva er det beste operativsystemet av disse?', options: ['Windows 10/11', 'Ubuntu', 'MacOS', 'Alle suger på hver sin måte'], answer: 3 }
     ];
 
     let currentQuestionIndex = 0;
