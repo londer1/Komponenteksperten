@@ -246,7 +246,6 @@ streakElement.style.display = 'none';
     
         quizSection.innerHTML = `
             <h2>Du fikk ${score} av ${totalQuestions} riktig!</h2>
-            <p>${message}</p>
             <img src="${imageSrc}" alt="${message}">
         `;
         scoreElement.classList.remove('hidden');
