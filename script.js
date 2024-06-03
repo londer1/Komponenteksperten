@@ -76,9 +76,9 @@ streakElement.style.display = 'none';
         { question: 'Hvorfor har grafikkortprisene økt nylig?', options: ['Fallende etterspørsel', 'Økt etterspørsel fra mining og AI', 'Overproduksjon', 'Reduksjon i produksjonskostnader'], answer: 1 },
         { question: 'Hva er spesielt med NVMe M.2 SSD?', options: ['Mekaniske deler', 'Større enn en vanlig SSD', 'Mindre holdbar', 'Direkte på hovedkortet, ingen kabler'], answer: 3 },
         { question: 'Hvordan kan komponentene sammenlignes litt med et musikkorkester?', options: ['Jobber uavhengig', 'Ingen sammenligning', 'Har spesifikke roller og jobber sammen', 'Ikke viktige'], answer: 2 },
-        { question: 'Hva er fungsjonen til BIOS?', options: ['Håndtere og administrere programvareapplikasjoner', 'Sikre at alle komponentene i datamaskinen er klar for bruk før operativsystemet starter', 'Fungere som et operativsystem selv', 'illate brukeren å endre systeminnstillinger for å optimere ytelsen til datamaskinen'], answer: 1 },
+        { question: 'Hva er hovedfungsjonen til BIOS?', options: ['Håndtere og administrere programvareapplikasjoner', 'Sikre at alle komponentene i datamaskinen er klar for bruk før operativsystemet starter', 'Fungere som et operativsystem selv', 'Tillate brukeren å endre systeminnstillinger'], answer: 1 },
         { question: 'Hva bidrar kjølesystemet til under datamaskinens bruk?', options: ['Øker temperaturen', 'Ingen funksjon', 'Forårsaker overoppheting', 'Forhindrer overoppheting'], answer: 3 },
-        { question: 'Hvordan kan "bussene" i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Fri flyt av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 },
+        { question: 'Hvordan kan "bussene" i en datamaskin sammenlignes med veier?', options: ['Begrenser informasjonsflyten', 'Det er som en motorvei av informasjon', 'Ingen sammenligning', 'Bare dekorasjon'], answer: 1 },
         { question: 'Hva er det beste operativsystemet av disse?', options: ['Windows 10/11', 'Ubuntu', 'MacOS', 'Alle suger på hver sin måte'], answer: 3 }
     ];
 
