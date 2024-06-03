@@ -215,10 +215,10 @@ streakElement.style.display = 'none';
         const interval = Math.floor(totalQuestions / 4);
         let message = '';
         let imageSrc = '';
-    
+        
         if (score === totalQuestions) {
             message = "Gratulerer! Du klarte alle spørsmålene!";
-            imageSrc = "gratulerer.jpg";
+            imageSrc = "/gifs/gratulerer.gif";
             startConfetti(10000, 1000);
         } else {
             const intervalIndex = Math.floor(score / interval);
@@ -229,28 +229,30 @@ streakElement.style.display = 'none';
                     break;
                 case 1:
                     message = "Du kan bedre...";
-                    imageSrc = "kan_bedre.jpg";
+                    imageSrc = "/bilder/du_kan_bedre.jpg";
                     break;
                 case 2:
                     message = "Helt greit";
-                    imageSrc = "greit.jpg";
+                    imageSrc = "/bilder/helt_greit.jpg";
                     startConfetti(3000, 300);
                     break;
                 case 3:
                     message = "Nesten alt riktig!";
-                    imageSrc = "bra_jobba.jpg";
+                    imageSrc = "/bilder/nesten_alt_riktig.jpg";
                     startConfetti(4000, 400);
                     break;
             }
         }
-    
+        
         quizSection.innerHTML = `
             <h2>Du fikk ${score} av ${totalQuestions} riktig!</h2>
+            <p>${message}</p>
             <img src="${imageSrc}" alt="${message}">
         `;
         scoreElement.classList.remove('hidden');
         scoreValueElement.textContent = score;
     }
+    
     
     showQuestion(currentQuestionIndex);
     

@@ -577,6 +577,10 @@ body:not(.dark-mode) .iconSSD img{
     overflow: visible;
 }
 
+gif {
+    padding: 20px;
+}
+
 
 /* lydeffekter til quizen 
 effekt på poenboksen ved streaks
